@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 10%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.5s;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #ff6b6b;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background: #ff6b6b;
+        }
+        
+        section {
+            min-height: 100vh;
+            padding: 100px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .home {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+        
+        .home-content {
+            max-width: 600px;
+        }
+        
+        .home-content h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .home-content h3 {
+            font-size: 32px;
+            color: #ff6b6b;
+            margin-bottom: 30px;
+        }
+        
+        .typing-text {
+            font-size: 24px;
+            height: 32px;
+            color: #4dccbd;
+            overflow: hidden;
+            border-right: 2px solid #4dccbd;
+            animation: blinkCursor 0.7s infinite;
+        }
+        
+        @keyframes blinkCursor {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: #4dccbd; }
+        }
+        
+        .image-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4dccbd);
+            animation: rotate 8s linear infinite;
+        }
+        
+        .profile-image {
+            position: relative;
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            background: #1a2a6c;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .profile-image img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .about {
+            flex-direction: row;
+            align-items: center;
+            gap: 50px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-content h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+            color: #ff6b6b;
+        }
+        
+        .about-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .projects {
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 60px;
+            color: #ff6b6b;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .project-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #4dccbd;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-icon {
+            transform: rotate(360deg) scale(1.2);
+        }
+        
+        .project-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .project-card p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .reviews {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .review-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 80px;
+            color: rgba(255, 255, 255, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .client-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .client-details h4 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .client-details p {
+            color: #4dccbd;
+        }
+        
+        .contact {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(to right, #ff6b6b, #4dccbd);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #ff6b6b;
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 992px) {
+            .home, .about {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .image-container {
+                margin-top: 50px;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <a href="#" class="logo">Portfo<span>lio</span></a>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="home-content">
+            <h1>Hello, I'm <span class="typing-name">Alex Johnson</span></h1>
+            <h3>Professional <span class="typing-text"></span></h3>
+            <p>Welcome to my creative space! I'm a passionate developer and designer with over 5 years of experience crafting beautiful, functional digital experiences that help businesses grow.</p>
+        </div>
+        <div class="image-container">
+            <div class="circle"></div>
+            <div class="profile-image">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Profile Image">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="About Me">
+        </div>
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>Hello! I'm Alex Johnson, a passionate web developer and UI/UX designer with over 5 years of experience in creating beautiful, functional websites and applications. My journey in tech started when I was just 15, tinkering with HTML and CSS to customize my blog.</p>
+            <p>I specialize in creating responsive websites that work seamlessly across all devices. My approach combines aesthetic design with technical excellence to deliver exceptional user experiences.</p>
+            <p>When I'm not coding, you can find me hiking in the mountains, reading science fiction, or experimenting with new cooking recipes. I believe in continuous learning and pushing the boundaries of what's possible with technology.</p>
+            <a href="#" class="btn">Download CV</a>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <i class="fas fa-shopping-cart project-icon"></i>
+                <h3>E-Commerce Platform</h3>
+                <p>Built a full-featured e-commerce solution with React, Node.js, and MongoDB. Integrated payment processing and inventory management.</p>
+            </div>
+            <div class="project-card">
+                <i class="fas fa-mobile-alt project-icon"></i>
+                <h3>Fitness App</h3>
+                <p>Created a mobile fitness application with personalized workout plans, nutrition tracking, and progress analytics.</p>
+            </div>
+            <div class="project-card">
+                <i class="fas fa-chart-line project-icon"></i>
+                <h3>Financial Dashboard</h3>
+                <p>Developed a real-time financial dashboard with data visualization tools for investment tracking and analysis.</p>
+            </div>
+            <div class="project-card">
+                <i class="fas fa-robot project-icon"></i>
+                <h3>AI Chatbot</h3>
+                <p>Designed and implemented an AI-powered customer support chatbot using natural language processing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <h2 class="section-title">Client Reviews</h2>
+        <div class="reviews-container">
+            <div class="review-card">
+                <p>"Alex transformed our outdated website into a modern, responsive platform that increased our conversion rate by 45%. His attention to detail and creative solutions were outstanding!"</p>
+                <div class="client-info">
+                    <div class="client-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Client">
+                    </div>
+                    <div class="client-details">
+                        <h4>Sarah Williams</h4>
+                        <p>CEO, TechInnovate</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <p>"Working with Alex was a game-changer for our business. He delivered our mobile app ahead of schedule and under budget. His technical expertise and communication skills are top-notch."</p>
+                <div class="client-info">
+                    <div class="client-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Client">
+                    </div>
+                    <div class="client-details">
+                        <h4>Michael Chen</h4>
+                        <p>Product Manager, FinTech Solutions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <p>"Alex's design skills are exceptional. He took our vague ideas and turned them into a stunning, user-friendly interface that perfectly represents our brand. We couldn't be happier with the results!"</p>
+                <div class="client-info">
+                    <div class="client-image">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Client">
+                    </div>
+                    <div class="client-details">
+                        <h4>Jennifer Martinez</h4>
+                        <p>Marketing Director, CreativeBrands</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Work With Me</h2>
+        <p>Have a project in mind? Let's create something amazing together!</p>
+        
+        <form class="contact-form">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+        </div>
+        <p>&copy; 2023 Alex Johnson. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Typing Animation Effect
+        const typingText = document.querySelector('.typing-text');
+        const textArray = ['Web Developer', 'UI/UX Designer', 'Frontend Engineer', 'Creative Coder'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeEffect() {
+            const currentText = textArray[textIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textArray.length;
+                setTimeout(typeEffect, 500);
+            } else {
+                const typingSpeed = isDeleting ? 100 : 150;
+                setTimeout(typeEffect, typingSpeed);
+            }
+        }
+        
+        // Initialize typing effect when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(typeEffect, 1000);
+            
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                header.classList.toggle('sticky', window.scrollY > 0);
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav ul li a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Project card animation on scroll
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            projectCards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
