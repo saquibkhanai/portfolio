@@ -3,45 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio</title>
+    <title>Muhammad Saquib Khan | 2D/3D Artist & Data Science Student</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff4d94;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --kashmir-blue: #2c3e50;
+            --kashmir-green: #27ae60;
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
-            color: #fff;
+            background: linear-gradient(135deg, var(--dark), #16213e);
+            color: var(--light);
             overflow-x: hidden;
+            line-height: 1.6;
         }
         
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 10%;
-            background: rgba(0, 0, 0, 0.7);
+            padding: 20px 5%;
+            background: rgba(26, 26, 46, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: 0.5s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 15px 5%;
+            background: rgba(26, 26, 46, 0.98);
         }
         
         .logo {
             font-size: 28px;
             font-weight: 700;
-            color: #fff;
+            color: var(--light);
             text-decoration: none;
+            font-family: 'Raleway', sans-serif;
         }
         
         .logo span {
-            color: #ff6b6b;
+            color: var(--accent);
         }
         
         nav ul {
@@ -54,22 +73,23 @@
         }
         
         nav ul li a {
-            color: #fff;
+            color: var(--light);
             text-decoration: none;
             font-weight: 500;
             font-size: 18px;
             padding: 8px 15px;
-            border-radius: 5px;
+            border-radius: 30px;
             transition: 0.3s;
         }
         
         nav ul li a:hover {
-            background: #ff6b6b;
+            background: var(--accent);
+            color: var(--dark);
         }
         
         section {
             min-height: 100vh;
-            padding: 100px 10%;
+            padding: 120px 5% 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -80,23 +100,43 @@
             align-items: center;
             justify-content: space-between;
             gap: 50px;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(37, 117, 252, 0.2));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .home::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,77,148,0.1) 0%, transparent 70%);
+            z-index: 0;
         }
         
         .home-content {
             max-width: 600px;
+            z-index: 2;
         }
         
         .home-content h1 {
             font-size: 56px;
-            font-weight: 700;
+            font-weight: 800;
             line-height: 1.2;
             margin-bottom: 20px;
+            background: linear-gradient(to right, var(--accent), #6a11cb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Raleway', sans-serif;
         }
         
         .home-content h3 {
             font-size: 32px;
-            color: #ff6b6b;
+            color: #fff;
             margin-bottom: 30px;
+            font-weight: 600;
         }
         
         .typing-text {
@@ -104,22 +144,80 @@
             height: 32px;
             color: #4dccbd;
             overflow: hidden;
-            border-right: 2px solid #4dccbd;
+            border-right: 2px solid var(--accent);
             animation: blinkCursor 0.7s infinite;
+            display: inline-block;
         }
         
         @keyframes blinkCursor {
             0%, 100% { border-color: transparent; }
-            50% { border-color: #4dccbd; }
+            50% { border-color: var(--accent); }
+        }
+        
+        .location-tag {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 30px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        
+        .location-tag i {
+            margin-right: 8px;
+            color: var(--accent);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            color: var(--dark);
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(255, 77, 148, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        .btn:hover {
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 77, 148, 0.5);
         }
         
         .image-container {
             position: relative;
-            width: 400px;
-            height: 400px;
+            width: 380px;
+            height: 380px;
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 1;
         }
         
         .circle {
@@ -127,28 +225,30 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: linear-gradient(45deg, #ff6b6b, #4dccbd);
+            background: linear-gradient(45deg, var(--accent), var(--secondary));
             animation: rotate 8s linear infinite;
+            box-shadow: 0 0 50px rgba(106, 17, 203, 0.5);
         }
         
         .profile-image {
             position: relative;
-            width: 380px;
-            height: 380px;
+            width: 360px;
+            height: 360px;
             border-radius: 50%;
-            background: #1a2a6c;
+            background: var(--dark);
             overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
+            border: 5px solid rgba(255, 255, 255, 0.1);
         }
         
         .profile-image img {
-            width: 350px;
-            height: 350px;
+            width: 340px;
+            height: 340px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #fff;
+            border: 5px solid var(--dark);
         }
         
         @keyframes rotate {
@@ -160,7 +260,7 @@
             flex-direction: row;
             align-items: center;
             gap: 50px;
-            background: rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, rgba(37, 117, 252, 0.1), rgba(106, 17, 203, 0.2));
         }
         
         .about-image {
@@ -171,19 +271,34 @@
         
         .about-image img {
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 5px solid rgba(255, 255, 255, 0.1);
         }
         
         .about-content {
             flex: 1;
         }
         
-        .about-content h2 {
+        .section-title {
             font-size: 40px;
             margin-bottom: 30px;
-            color: #ff6b6b;
+            color: var(--accent);
+            font-family: 'Raleway', sans-serif;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            border-radius: 2px;
         }
         
         .about-content p {
@@ -192,30 +307,93 @@
             margin-bottom: 20px;
         }
         
-        .projects {
-            background: rgba(0, 0, 0, 0.3);
+        .timeline {
+            display: flex;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
         }
         
-        .section-title {
+        .timeline-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            width: calc(50% - 10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+        }
+        
+        .timeline-item h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .projects {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.9));
+        }
+        
+        .section-title-center {
             text-align: center;
             font-size: 40px;
             margin-bottom: 60px;
-            color: #ff6b6b;
+            color: var(--accent);
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .section-title-center::after {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--light);
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--accent);
+            color: var(--dark);
         }
         
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
         
         .project-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
-            padding: 30px;
-            text-align: center;
+            overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            position: relative;
         }
         
         .project-card:hover {
@@ -223,29 +401,46 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
         
-        .project-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-            color: #4dccbd;
+        .project-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
             transition: transform 0.5s;
         }
         
-        .project-card:hover .project-icon {
-            transform: rotate(360deg) scale(1.2);
+        .project-card:hover .project-img {
+            transform: scale(1.05);
         }
         
-        .project-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
+        .project-info {
+            padding: 20px;
         }
         
-        .project-card p {
+        .project-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        .project-info p {
+            color: #ccc;
             font-size: 16px;
-            line-height: 1.6;
+        }
+        
+        .project-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
         }
         
         .reviews {
-            background: rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, rgba(37, 117, 252, 0.1), rgba(106, 17, 203, 0.2));
         }
         
         .reviews-container {
@@ -255,10 +450,15 @@
         }
         
         .review-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             padding: 30px;
             position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
         }
         
         .review-card::before {
@@ -269,6 +469,11 @@
             font-size: 80px;
             color: rgba(255, 255, 255, 0.1);
             font-family: Georgia, serif;
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin-bottom: 15px;
         }
         
         .client-info {
@@ -283,6 +488,7 @@
             border-radius: 50%;
             overflow: hidden;
             margin-right: 15px;
+            border: 2px solid var(--accent);
         }
         
         .client-image img {
@@ -297,61 +503,177 @@
         }
         
         .client-details p {
-            color: #4dccbd;
+            color: var(--accent);
         }
         
         .contact {
             text-align: center;
-            background: rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.9));
         }
         
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 40px auto;
         }
         
-        .form-group {
-            margin-bottom: 25px;
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px 20px;
+            transition: transform 0.3s;
+            cursor: pointer;
         }
         
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
+        .contact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(106, 17, 203, 0.2);
+        }
+        
+        .contact-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .contact-card p {
+            color: #ccc;
             font-size: 16px;
         }
         
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .btn {
+        .contact-btn {
             display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(to right, #ff6b6b, #4dccbd);
-            color: #fff;
-            border: none;
-            border-radius: 50px;
-            font-size: 18px;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: var(--accent);
+            color: var(--dark);
+            border-radius: 30px;
+            text-decoration: none;
             font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: 0.3s;
         }
         
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        .contact-btn:hover {
+            background: var(--light);
+            transform: scale(1.05);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background: var(--dark);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 900px;
+            position: relative;
+            box-shadow: 0 0 50px rgba(106, 17, 203, 0.5);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 40px;
+            color: var(--light);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+        }
+        
+        .modal-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .modal-header h2 {
+            color: var(--accent);
+            font-size: 32px;
+        }
+        
+        .modal-header p {
+            color: #ccc;
+            font-size: 18px;
+        }
+        
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .modal-details {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .modal-details h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .modal-details ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-details li {
+            margin-bottom: 8px;
         }
         
         footer {
             text-align: center;
             padding: 30px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(26, 26, 46, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 20px;
+            display: inline-block;
         }
         
         .social-links {
@@ -359,21 +681,24 @@
         }
         
         .social-links a {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 50px;
             height: 50px;
-            line-height: 50px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
-            color: #fff;
+            color: var(--light);
             margin: 0 10px;
             font-size: 20px;
             transition: 0.3s;
+            text-decoration: none;
         }
         
         .social-links a:hover {
-            background: #ff6b6b;
+            background: var(--accent);
             transform: translateY(-5px);
+            color: var(--dark);
         }
         
         @media (max-width: 992px) {
@@ -386,6 +711,30 @@
                 margin-top: 50px;
             }
             
+            .timeline {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timeline-item {
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .home-content h1 {
+                font-size: 40px;
+            }
+            
+            .home-content h3 {
+                font-size: 24px;
+            }
+            
+            .section-title, .section-title-center {
+                font-size: 32px;
+            }
+            
             nav ul {
                 display: none;
             }
@@ -395,7 +744,7 @@
 <body>
     <!-- Header with Navigation -->
     <header>
-        <a href="#" class="logo">Portfo<span>lio</span></a>
+        <a href="#" class="logo">Saquib<span>Khan</span></a>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -410,14 +759,21 @@
     <!-- Home Section -->
     <section id="home" class="home">
         <div class="home-content">
-            <h1>Hello, I'm <span class="typing-name">Muhammad Saquib Khan</span></h1>
+            <h1>Hello, I'm <br>Muhammad Saquib Khan</h1>
             <h3>Professional <span class="typing-text"></span></h3>
-            <p>Welcome to my Portfolio! I'm a passionate developer and designer with over 2 years of experience crafting beautiful, functional digital experiences that help businesses grow.</p>
+            <p>2D/3D artist & data science student blending creativity with analytics. I transform ideas into visually stunning designs while exploring the world of data.</p>
+            
+            <div class="location-tag">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Rawalpindi, Pakistan | From Azad Jammu Kashmir</span>
+            </div>
+            
+            <a href="#" class="btn"><i class="fas fa-download"></i> Download CV</a>
         </div>
         <div class="image-container">
             <div class="circle"></div>
             <div class="profile-image">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Profile Image">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Muhammad Saquib Khan">
             </div>
         </div>
     </section>
@@ -425,81 +781,174 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="about-image">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="About Me">
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="About Me">
         </div>
         <div class="about-content">
-            <h2>About Me</h2>
-            <p>Hello! I'm Alex Johnson, a passionate web developer and UI/UX designer with over 5 years of experience in creating beautiful, functional websites and applications. My journey in tech started when I was just 15, tinkering with HTML and CSS to customize my blog.</p>
-            <p>I specialize in creating responsive websites that work seamlessly across all devices. My approach combines aesthetic design with technical excellence to deliver exceptional user experiences.</p>
-            <p>When I'm not coding, you can find me hiking in the mountains, reading science fiction, or experimenting with new cooking recipes. I believe in continuous learning and pushing the boundaries of what's possible with technology.</p>
-            <a href="#" class="btn">Download CV</a>
+            <h2 class="section-title">About Me</h2>
+            <p>I'm <strong>Muhammad Saquib Khan</strong>, a 20-year-old 2D/3D artist and data science student currently completing my Bachelor's degree at IST Islamabad. Originally from the beautiful Azad Jammu Kashmir, I now reside in Rawalpindi where I balance my creative work with academic pursuits.</p>
+            <p>With over 2 years of professional experience on Fiverr, I've created stunning visual designs for clients worldwide. I specialize in 3D modeling, digital sculpture, logo design, and poster creation, with a portfolio that showcases my versatility and technical skills.</p>
+            <p>Currently in my 6th semester, I'm expanding my expertise into Python programming and data analysis. I believe that the intersection of art and data science holds incredible potential for innovation, and I'm excited to leverage both disciplines in my future work.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Education</h4>
+                    <p>IST Islamabad</p>
+                    <p>6th Semester - Data Science</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Experience</h4>
+                    <p>Fiverr Artist</p>
+                    <p>2+ Years</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Skills</h4>
+                    <p>3D Modeling & Sculpture</p>
+                    <p>Python & Data Science</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Location</h4>
+                    <p>Rawalpindi, Pakistan</p>
+                    <p>From Azad Jammu Kashmir</p>
+                </div>
+            </div>
+            
+            <a href="#" class="btn" style="margin-top: 30px;"><i class="fas fa-download"></i> Download CV</a>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="projects">
-        <h2 class="section-title">My Projects</h2>
+        <h2 class="section-title-center">My Projects</h2>
+        
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="3d">3D Models</button>
+            <button class="filter-btn" data-filter="sculpture">Sculpture</button>
+            <button class="filter-btn" data-filter="logo">Logo Design</button>
+            <button class="filter-btn" data-filter="poster">Poster Design</button>
+        </div>
+        
         <div class="projects-grid">
-            <div class="project-card">
-                <i class="fas fa-shopping-cart project-icon"></i>
-                <h3>E-Commerce Platform</h3>
-                <p>Built a full-featured e-commerce solution with React, Node.js, and MongoDB. Integrated payment processing and inventory management.</p>
+            <!-- Project 1 -->
+            <div class="project-card" data-category="3d" onclick="openModal('project1')">
+                <span class="project-category">3D Model</span>
+                <img src="https://images.unsplash.com/photo-1633287387306-f08b4b3671c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Futuristic City" class="project-img">
+                <div class="project-info">
+                    <h3>Futuristic Cityscape</h3>
+                    <p>3D modeled city with advanced lighting and textures</p>
+                </div>
             </div>
-            <div class="project-card">
-                <i class="fas fa-mobile-alt project-icon"></i>
-                <h3>Fitness App</h3>
-                <p>Created a mobile fitness application with personalized workout plans, nutrition tracking, and progress analytics.</p>
+            
+            <!-- Project 2 -->
+            <div class="project-card" data-category="sculpture" onclick="openModal('project2')">
+                <span class="project-category">Sculpture</span>
+                <img src="https://images.unsplash.com/photo-1580993769822-9f50c4d9691d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Abstract Sculpture" class="project-img">
+                <div class="project-info">
+                    <h3>Abstract Sculpture</h3>
+                    <p>Handcrafted sculpture with mixed materials</p>
+                </div>
             </div>
-            <div class="project-card">
-                <i class="fas fa-chart-line project-icon"></i>
-                <h3>Financial Dashboard</h3>
-                <p>Developed a real-time financial dashboard with data visualization tools for investment tracking and analysis.</p>
+            
+            <!-- Project 3 -->
+            <div class="project-card" data-category="logo" onclick="openModal('project3')">
+                <span class="project-category">Logo Design</span>
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Tech Logo" class="project-img">
+                <div class="project-info">
+                    <h3>Tech Company Logo</h3>
+                    <p>Modern logo design for a tech startup</p>
+                </div>
             </div>
-            <div class="project-card">
-                <i class="fas fa-robot project-icon"></i>
-                <h3>AI Chatbot</h3>
-                <p>Designed and implemented an AI-powered customer support chatbot using natural language processing.</p>
+            
+            <!-- Project 4 -->
+            <div class="project-card" data-category="poster" onclick="openModal('project4')">
+                <span class="project-category">Poster Design</span>
+                <img src="https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Movie Poster" class="project-img">
+                <div class="project-info">
+                    <h3>Film Festival Poster</h3>
+                    <p>Promotional poster for an international film festival</p>
+                </div>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="project-card" data-category="3d" onclick="openModal('project5')">
+                <span class="project-category">3D Model</span>
+                <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Character Design" class="project-img">
+                <div class="project-info">
+                    <h3>Fantasy Character</h3>
+                    <p>3D character design for a video game</p>
+                </div>
+            </div>
+            
+            <!-- Project 6 -->
+            <div class="project-card" data-category="logo" onclick="openModal('project6')">
+                <span class="project-category">Logo Design</span>
+                <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Restaurant Logo" class="project-img">
+                <div class="project-info">
+                    <h3>Restaurant Branding</h3>
+                    <p>Complete branding package for a fine dining restaurant</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Reviews Section -->
     <section id="reviews" class="reviews">
-        <h2 class="section-title">Client Reviews</h2>
+        <h2 class="section-title-center">Client Reviews</h2>
         <div class="reviews-container">
             <div class="review-card">
-                <p>"Alex transformed our outdated website into a modern, responsive platform that increased our conversion rate by 45%. His attention to detail and creative solutions were outstanding!"</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Saquib transformed our brand with his incredible 3D logo design. His attention to detail and creative vision exceeded all expectations. Will definitely work with him again!"</p>
                 <div class="client-info">
                     <div class="client-image">
                         <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Client">
                     </div>
                     <div class="client-details">
-                        <h4>Sarah Williams</h4>
-                        <p>CEO, TechInnovate</p>
+                        <h4>Sarah Johnson</h4>
+                        <p>Tech Startup CEO</p>
                     </div>
                 </div>
             </div>
             <div class="review-card">
-                <p>"Working with Alex was a game-changer for our business. He delivered our mobile app ahead of schedule and under budget. His technical expertise and communication skills are top-notch."</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"The sculpture Saquib created for our office lobby is absolutely stunning. He perfectly captured our company's vision and delivered beyond what we imagined possible."</p>
                 <div class="client-info">
                     <div class="client-image">
                         <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Client">
                     </div>
                     <div class="client-details">
                         <h4>Michael Chen</h4>
-                        <p>Product Manager, FinTech Solutions</p>
+                        <p>Creative Director</p>
                     </div>
                 </div>
             </div>
             <div class="review-card">
-                <p>"Alex's design skills are exceptional. He took our vague ideas and turned them into a stunning, user-friendly interface that perfectly represents our brand. We couldn't be happier with the results!"</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>"Working with Saquib on our film festival posters was a fantastic experience. His designs captured the essence of our event and received rave reviews from attendees."</p>
                 <div class="client-info">
                     <div class="client-image">
                         <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Client">
                     </div>
                     <div class="client-details">
-                        <h4>Jennifer Martinez</h4>
-                        <p>Marketing Director, CreativeBrands</p>
+                        <h4>Emily Rodriguez</h4>
+                        <p>Festival Organizer</p>
                     </div>
                 </div>
             </div>
@@ -508,38 +957,157 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2 class="section-title">Work With Me</h2>
+        <h2 class="section-title-center">Work With Me</h2>
         <p>Have a project in mind? Let's create something amazing together!</p>
         
-        <form class="contact-form">
-            <div class="form-group">
-                <input type="text" placeholder="Your Name" required>
+        <div class="contact-options">
+            <div class="contact-card">
+                <i class="fas fa-envelope contact-icon"></i>
+                <h3>Email</h3>
+                <p>Send me a direct message</p>
+                <a href="mailto:saquib.khan@example.com" class="contact-btn">Send Email</a>
             </div>
-            <div class="form-group">
-                <input type="email" placeholder="Your Email" required>
+            <div class="contact-card">
+                <i class="fab fa-fiverr contact-icon"></i>
+                <h3>Fiverr</h3>
+                <p>Hire me on Fiverr</p>
+                <a href="https://www.fiverr.com" target="_blank" class="contact-btn">Visit Profile</a>
             </div>
-            <div class="form-group">
-                <textarea placeholder="Your Message" rows="5" required></textarea>
+            <div class="contact-card">
+                <i class="fab fa-whatsapp contact-icon"></i>
+                <h3>WhatsApp</h3>
+                <p>Chat directly with me</p>
+                <a href="https://wa.me/1234567890" target="_blank" class="contact-btn">Message Me</a>
             </div>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
+            <div class="contact-card">
+                <i class="fab fa-linkedin contact-icon"></i>
+                <h3>LinkedIn</h3>
+                <p>Connect professionally</p>
+                <a href="https://linkedin.com" target="_blank" class="contact-btn">Connect</a>
+            </div>
+        </div>
     </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-header">
+                <h2 id="modalTitle">Project Title</h2>
+                <p id="modalSubtitle">Project Category</p>
+            </div>
+            
+            <div class="modal-gallery" id="modalGallery">
+                <!-- Gallery items will be added by JavaScript -->
+            </div>
+            
+            <div class="modal-details">
+                <h3>Project Details</h3>
+                <p id="modalDescription">Project description goes here...</p>
+                
+                <h3 style="margin-top: 20px;">Techniques Used</h3>
+                <ul id="modalTechniques">
+                    <!-- Techniques will be added by JavaScript -->
+                </ul>
+                
+                <div style="margin-top: 30px; text-align: center;">
+                    <button class="contact-btn" style="background: var(--accent); border: none; padding: 12px 40px; font-size: 18px;">Request Similar Project</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
+        <div class="footer-logo">Muhammad Saquib Khan</div>
+        <p>2D/3D Artist & Data Science Student</p>
+        
         <div class="social-links">
+            <a href="#"><i class="fab fa-fiverr"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
             <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-dribbble"></i></a>
         </div>
-        <p>&copy; 2023 Alex Johnson. All rights reserved.</p>
+        <p style="margin-top: 20px; color: rgba(255,255,255,0.6);">Based in Rawalpindi, Pakistan | Originally from Azad Jammu Kashmir</p>
+        <p>&copy; 2023 Muhammad Saquib Khan. All rights reserved.</p>
     </footer>
 
     <script>
+        // Projects data
+        const projects = {
+            project1: {
+                title: "Futuristic Cityscape",
+                category: "3D Model",
+                description: "A highly detailed 3D model of a futuristic cityscape, created for a sci-fi video game. This project involved complex lighting setups, texture mapping, and environmental design to create a believable future world.",
+                images: [
+                    "https://images.unsplash.com/photo-1633287387306-f08b4b3671c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                    "https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                    "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+                ],
+                techniques: ["Blender 3D", "Substance Painter", "UV Unwrapping", "Ray Tracing", "PBR Texturing"]
+            },
+            project2: {
+                title: "Abstract Sculpture",
+                category: "Sculpture",
+                description: "A large-scale abstract sculpture created for a corporate office lobby. Made from mixed materials including bronze, stainless steel, and acrylic, this piece represents the harmony between technology and nature.",
+                images: [
+                    "https://images.unsplash.com/photo-1580993769822-9f50c4d9691d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+                    "https://images.unsplash.com/photo-1583430011138-1a1e1aa1d8e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                    "https://images.unsplash.com/photo-1583430011138-1a1e1aa1d8e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+                ],
+                techniques: ["Clay Modeling", "Metal Casting", "Welding", "Surface Finishing", "Patina Application"]
+            },
+            project3: {
+                title: "Tech Company Logo",
+                category: "Logo Design",
+                description: "A modern, dynamic logo for a technology startup specializing in AI solutions. The design incorporates geometric elements that suggest both connectivity and forward motion.",
+                images: [
+                    "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+                    "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+                    "https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+                ],
+                techniques: ["Adobe Illustrator", "Vector Design", "Brand Identity", "Color Theory", "Typography"]
+            },
+            project4: {
+                title: "Film Festival Poster",
+                category: "Poster Design",
+                description: "A series of promotional posters for an international film festival. The design features a cinematic color palette and dynamic composition that captures the excitement of the event.",
+                images: [
+                    "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+                    "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+                    "https://images.unsplash.com/photo-1584824486539-53bb4646bdbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                ],
+                techniques: ["Adobe Photoshop", "Typography", "Layout Design", "Print Production", "Visual Hierarchy"]
+            },
+            project5: {
+                title: "Fantasy Character",
+                category: "3D Model",
+                description: "A fully rigged 3D character for a fantasy RPG game. The character features detailed armor, realistic textures, and facial expressions for cinematic sequences.",
+                images: [
+                    "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+                    "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+                    "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                ],
+                techniques: ["ZBrush Sculpting", "Character Rigging", "Texture Painting", "Animation", "PBR Materials"]
+            },
+            project6: {
+                title: "Restaurant Branding",
+                category: "Logo Design",
+                description: "Complete branding package for a fine dining restaurant, including logo, menu design, and interior signage. The elegant design reflects the restaurant's focus on traditional cuisine with a modern twist.",
+                images: [
+                    "https://images.unsplash.com/photo-1611262588024-d12430b98920?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+                    "https://images.unsplash.com/photo-1611262588024-d12430b98920?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+                    "https://images.unsplash.com/photo-1611262588024-d12430b98920?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                ],
+                techniques: ["Brand Identity", "Print Design", "Packaging", "Typography", "Color Psychology"]
+            }
+        };
+
         // Typing Animation Effect
         const typingText = document.querySelector('.typing-text');
-        const textArray = ['Web Developer', 'UI/UX Designer', 'Frontend Engineer', 'Creative Coder'];
+        const textArray = ['2D/3D Artist', 'Data Science Student', 'Python Developer', '3D Designer', 'Digital Sculptor'];
         let textIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -568,14 +1136,87 @@
             }
         }
         
-        // Initialize typing effect when page loads
+        // Project Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Modal Functions
+        function openModal(projectId) {
+            const modal = document.getElementById('projectModal');
+            const project = projects[projectId];
+            
+            if (project) {
+                document.getElementById('modalTitle').textContent = project.title;
+                document.getElementById('modalSubtitle').textContent = project.category;
+                document.getElementById('modalDescription').textContent = project.description;
+                
+                // Set techniques
+                const techniquesList = document.getElementById('modalTechniques');
+                techniquesList.innerHTML = '';
+                project.techniques.forEach(tech => {
+                    const li = document.createElement('li');
+                    li.textContent = tech;
+                    techniquesList.appendChild(li);
+                });
+                
+                // Set gallery images
+                const gallery = document.getElementById('modalGallery');
+                gallery.innerHTML = '';
+                project.images.forEach(img => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    
+                    const imgElem = document.createElement('img');
+                    imgElem.src = img;
+                    imgElem.alt = project.title;
+                    
+                    galleryItem.appendChild(imgElem);
+                    gallery.appendChild(galleryItem);
+                });
+                
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Initialize when page loads
         document.addEventListener('DOMContentLoaded', () => {
+            // Start typing effect
             setTimeout(typeEffect, 1000);
             
             // Header scroll effect
             window.addEventListener('scroll', () => {
                 const header = document.querySelector('header');
-                header.classList.toggle('sticky', window.scrollY > 0);
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             });
             
             // Smooth scrolling for navigation links
@@ -593,25 +1234,12 @@
                 });
             });
             
-            // Project card animation on scroll
-            const projectCards = document.querySelectorAll('.project-card');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-            
-            projectCards.forEach(card => {
-                card.style.opacity = 0;
-                card.style.transform = 'translateY(50px)';
-                card.style.transition = 'opacity 0.5s, transform 0.5s';
-                observer.observe(card);
+            // Close modal when clicking outside
+            window.addEventListener('click', (e) => {
+                const modal = document.getElementById('projectModal');
+                if (e.target === modal) {
+                    closeModal();
+                }
             });
         });
     </script>
