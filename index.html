@@ -12,6 +12,7 @@
             --dark-blue: #0a192f;
             --light-gray: #ccd6f6;
             --medium-gray: #8892b0;
+            --blue: #00FF9C;
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
@@ -260,8 +261,15 @@
             background: var(--neon-yellow);
         }
 
-        /* Intro Section */
+        /* Intro Section - Updated for two-column layout */
+        .intro-container {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
         .intro-content {
+            flex: 1;
             max-width: 700px;
         }
 
@@ -274,6 +282,59 @@
         .highlight {
             color: var(--neon-yellow);
             font-weight: 500;
+        }
+
+        .highlight1 {
+            color: var(--blue);
+            font-weight: 500;
+        }
+
+        /* Animated Rectangle Frame for About Me */
+        .about-container {
+            position: relative;
+            width: 400px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            animation: rotateBorder 8s linear infinite;
+            box-shadow: 0 0 30px rgba(249, 255, 0, 0.3);
+        }
+
+        .about-container::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: conic-gradient(transparent, var(--neon-yellow), transparent);
+            animation: rotate 3s linear infinite;
+        }
+
+        .about-container::after {
+            content: '';
+            position: absolute;
+            width: 390px;
+            height: 490px;
+            background: var(--dark-blue);
+        }
+
+        .about-img {
+            position: relative;
+            width: 380px;
+            height: 480px;
+            z-index: 10;
+            background: linear-gradient(45deg, var(--dark-blue), #1a3a6d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Projects Section */
@@ -378,7 +439,7 @@
             color: var(--medium-gray);
         }
 
-        /* Project Detail Card */
+        /* Project Detail Card - Updated with slider */
         .project-detail {
             position: fixed;
             top: 50%;
@@ -438,44 +499,96 @@
             margin-bottom: 1.5rem;
         }
 
-        .detail-media {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .detail-media img {
+        /* Gallery Slider */
+        .gallery-slider {
+            position: relative;
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: 400px;
+            margin-bottom: 2rem;
+            overflow: hidden;
             border-radius: 8px;
             border: 1px solid var(--medium-gray);
-            transition: var(--transition);
         }
 
-        .detail-media img:hover {
-            transform: scale(1.05);
-            border-color: var(--neon-yellow);
+        .slider-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease;
         }
 
-        .detail-video {
-            grid-column: span 3;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 1rem;
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
-        .detail-video i {
-            font-size: 3rem;
-            color: var(--neon-yellow);
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        .detail-video p {
-            margin-top: 1rem;
-            color: var(--medium-gray);
+        .slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            z-index: 10;
+        }
+
+        .slider-btn {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: var(--neon-yellow);
+            color: var(--dark-blue);
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--neon-yellow);
         }
 
         .detail-description {
@@ -505,74 +618,69 @@
             display: block;
         }
 
-        /* Skills Section */
+        /* Skills Section - 90% width */
         .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 0;
         }
 
-        .skill-category {
-            background: rgba(17, 34, 64, 0.5);
-            padding: 2rem;
-            border-radius: 10px;
-            transition: var(--transition);
+        .tools-card {
+            background-color: #0f1a35;
+            padding: 40px;
+            border-radius: 16px;
+            width: 100%;
         }
 
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .skill-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--neon-yellow);
+        .tools-title {
+            color: #e1ff00;
+            font-size: 24px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
         }
 
-        .skill-title i {
+        .tools-title i {
             margin-right: 10px;
-            font-size: 1.8rem;
         }
 
-        .skill-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+        .tool-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
 
-        .skill-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 70px;
-        }
-
-        .skill-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(249, 255, 0, 0.1);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-            color: var(--neon-yellow);
-            transition: var(--transition);
-        }
-
-        .skill-icon:hover {
-            transform: scale(1.2) rotate(10deg);
-            background: rgba(249, 255, 0, 0.2);
-            box-shadow: 0 0 15px rgba(249, 255, 0, 0.3);
-        }
-
-        .skill-name {
-            font-size: 0.8rem;
+        .tool-item {
+            background-color: #1a2b4c;
+            padding: 15px;
+            border-radius: 12px;
             text-align: center;
+            color: #e1ff00;
+            transition: 0.3s ease;
+        }
+
+        .tool-item:hover {
+            transform: translateY(-5px);
+            background-color: #223a60;
+        }
+
+        .tool-item i {
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #e1ff00;
+        }
+
+        .tool-title {
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .tool-desc {
+            font-size: 12px;
+            color: #cccccc;
+            line-height: 1.4;
         }
 
         /* Why Me Section */
@@ -743,6 +851,29 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .intro-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-container {
+                margin-top: 3rem;
+                width: 350px;
+                height: 450px;
+            }
+            
+            .about-container::after {
+                width: 340px;
+                height: 440px;
+            }
+            
+            .about-img {
+                width: 330px;
+                height: 430px;
+            }
+        }
+
         @media (max-width: 992px) {
             .hero {
                 flex-direction: column;
@@ -778,12 +909,8 @@
                 flex-direction: column;
             }
             
-            .detail-media {
-                grid-template-columns: 1fr;
-            }
-            
-            .detail-video {
-                grid-column: span 1;
+            .gallery-slider {
+                height: 300px;
             }
         }
 
@@ -830,6 +957,50 @@
                 width: 95%;
                 padding: 1rem;
             }
+            
+            .tools-card {
+                padding: 20px;
+            }
+            
+            .gallery-slider {
+                height: 250px;
+            }
+            
+            .about-container {
+                width: 300px;
+                height: 400px;
+            }
+            
+            .about-container::after {
+                width: 290px;
+                height: 390px;
+            }
+            
+            .about-img {
+                width: 280px;
+                height: 380px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-slider {
+                height: 200px;
+            }
+            
+            .about-container {
+                width: 250px;
+                height: 330px;
+            }
+            
+            .about-container::after {
+                width: 240px;
+                height: 320px;
+            }
+            
+            .about-img {
+                width: 230px;
+                height: 310px;
+            }
         }
     </style>
 </head>
@@ -855,22 +1026,24 @@
     <!-- Overlay for project detail -->
     <div class="overlay" id="overlay"></div>
 
-    <!-- Project Detail Card -->
+    <!-- Project Detail Card with Slider -->
     <div class="project-detail" id="project-detail">
         <div class="detail-header">
             <h3 class="detail-title" id="detail-title">Project Title</h3>
             <button class="close-btn" id="close-detail"><i class="fas fa-times"></i></button>
         </div>
-        <span class="detail-category" id="detail-category">Academic</span>
+        <span class="detail-category" id="detail-category">Category</span>
         
-        <div class="detail-media">
-            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=300" alt="Project image">
-            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=300" alt="Project image">
-            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=300" alt="Project image">
-            
-            <div class="detail-video">
-                <i class="fas fa-play-circle"></i>
-                <p>Project Demo Video</p>
+        <div class="gallery-slider">
+            <div class="slider-track" id="slider-track">
+                <!-- Slides will be added here dynamically -->
+            </div>
+            <div class="slider-nav">
+                <button class="slider-btn" id="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-btn" id="next-slide"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="slider-dots" id="slider-dots">
+                <!-- Dots will be added here dynamically -->
             </div>
         </div>
         
@@ -895,27 +1068,38 @@
                     <span>Brand Identity Expert</span>
                 </div>
             </div>
-            <p>Creative designer specializing in logo design, brand identity, and visual communication with 2+ years of freelance experience.</p>
+            <p>Creative designer specializing in logo design, brand identity, and visual communication with 2+ years of freelance experience. Student of Data Science.</p>
             <div class="hero-btns">
-                <a href="#" class="btn btn-primary" id="download-cv">Download CV</a>
+                <a href="Muhammad Saquib Khan CV.pdf" class="btn btn-primary" id="download-cv">Download CV</a>
                 <a href="#contact" class="btn">Work With Me</a>
             </div>
         </div>
         <div class="profile-container">
             <div class="profile-img">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Muhammad Saquib Khan">
+                <div style="width:100%;height:100%;background:linear-gradient(135deg, #0a192f, #1a3a6d);display:flex;justify-content:center;align-items:center;color:var(--neon-yellow);font-size:1.2rem;text-align:center;">
+                    <img src="images\Muhammad Saquib Khan.jpg" alt="Muhammad Saquib Khan">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Intro Section -->
+    <!-- Intro Section with Two Columns -->
     <section id="intro" class="intro">
         <h2 class="section-title">About Me</h2>
-        <div class="intro-content">
-            <p>Creative and detail-oriented <span class="highlight">Logo Designer</span> with 2 years of freelance experience delivering custom logo designs for clients on Fiverr and through local platforms such as Facebook and WhatsApp.</p>
-            <p>Skilled in <span class="highlight">Adobe Illustrator</span> with a solid understanding of brand identity, color theory, and typography. Proven ability to communicate effectively with clients, understand their vision, and translate ideas into impactful visual identities.</p>
-            <p>Committed to meeting deadlines, maintaining design quality, and ensuring client satisfaction through a smooth, professional design process.</p>
-            <a href="#" class="btn btn-primary" style="margin-top: 2rem;">Download CV</a>
+        <div class="intro-container">
+            <div class="intro-content">
+                <p>I'm a creative and detail-oriented <span class="highlight">Logo Designer</span> with <span class="highlight1">2+ years of freelance experience</span> delivering unique and tailored visual identities to clients on platforms like Fiverr, Facebook, and WhatsApp. I specialize in crafting custom logos that reflect brand values and stand out in competitive markets. With strong communication skills and a professional workflow, I ensure every design meets client expectations while maintaining high quality and timely delivery.</p>
+                <p>I also work extensively in <span class="highlight">3D design,</span> creating high-detail sculptures, 3D print-ready models, and textured assets for digital or physical use. Using tools like <span class="highlight1">Blender, Substance Painter and ZBrush,</span> I bring concepts to life with a focus on realism, form, and function. Whether it’s character models, props, or product prototypes, I aim to deliver clean, production-ready results for both digital visualization and physical fabrication.</p>
+                <p>In addition to logo design, I offer a range of <span class="highlight">2D design services</span> including minimalist logos, poster designs, food menus, and social media graphics. My approach combines simplicity with strong visual appeal, using effective color theory and typography to create designs that communicate clearly and leave a lasting impression.</p>
+                <a href="Muhammad Saquib Khan CV.pdf" class="btn btn-primary" id="download-cv">Download CV</a>
+            </div>
+            <div class="about-container">
+                <div class="about-img">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg, #0a192f, #1a3a6d);display:flex;justify-content:center;align-items:center;color:var(--neon-yellow);font-size:1.2rem;text-align:center;">
+                        <img src="images\Saquib Intro.jpg" alt="Muhammad Saquib Khan">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -923,174 +1107,143 @@
     <section id="projects" class="projects">
         <h2 class="section-title">My Projects</h2>
         <div class="projects-tabs">
-            <button class="tab-btn active" data-tab="academic">Academic Projects</button>
-            <button class="tab-btn" data-tab="freelance">Freelance Projects</button>
+            <button class="tab-btn active" data-tab="freelance">Freelance Projects</button>
+            <button class="tab-btn" data-tab="academic">Academic Projects</button>
         </div>
         <div class="projects-grid">
-            <!-- Academic Projects -->
-            <div class="project-card" data-id="1" data-type="academic">
+            <!-- Freelance Projects -->
+            <div class="project-card" data-id="1" data-type="freelance">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400" alt="University Brand Identity">
+                    <img src="images\sglogo.jpg" width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3ELogo Design Projects%3C/text%3E%3C/svg%3E" alt="Logo Design">
                 </div>
                 <div class="project-content">
-                    <span class="project-category">Academic</span>
-                    <h3 class="project-title">University Brand Identity</h3>
-                    <p class="project-description">Comprehensive brand identity system for university department including logo, stationery, and digital assets.</p>
+                    <span class="project-category">2D Design Projects</span>
+                    <h3 class="project-title">Logo Design Projects on Fiverr</h3>
+                    <p class="project-description">Work that I have done in 2+ years on fiverr. These include minimal logos, business logo and ship copamny logos.</p>
                 </div>
             </div>
-            <div class="project-card" data-id="2" data-type="academic">
+            <div class="project-card" data-id="2" data-type="freelance">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400" alt="Data Visualization Tool">
+                    <img src="images\poster.jpg" width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EPoster Designs%3C/text%3E%3C/svg%3E" alt="Poster Designs">
                 </div>
                 <div class="project-content">
-                    <span class="project-category">Academic</span>
-                    <h3 class="project-title">Data Visualization Tool</h3>
-                    <p class="project-description">Interactive data visualization platform for analyzing complex datasets.</p>
+                    <span class="project-category">2D Design Projects</span>
+                    <h3 class="project-title">Poster Designs</h3>
+                    <p class="project-description">Modern poster designs for events and promotions.</p>
                 </div>
             </div>
-            <div class="project-card" data-id="3" data-type="academic">
+            <div class="project-card" data-id="3" data-type="freelance">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1677442135133-33d364e7d1b0?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400" alt="AI Research Project">
+                    <img src="images\3dass1.png" width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3E3D Print Projects%3C/text%3E%3C/svg%3E" alt="3D Print Projects">
                 </div>
                 <div class="project-content">
-                    <span class="project-category">Academic</span>
-                    <h3 class="project-title">AI Research Project</h3>
-                    <p class="project-description">Machine learning model for predictive analysis in healthcare domain.</p>
+                    <span class="project-category">3D Printing Projects</span>
+                    <h3 class="project-title">Print Ready Projects</h3>
+                    <p class="project-description">3D print-ready models for various applications.</p>
                 </div>
             </div>
-            <div class="project-card" data-id="4" data-type="academic">
+            <div class="project-card" data-id="4" data-type="freelance">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400" alt="Web Development Platform">
+                    <img src="images\robo.png" width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3E3D Texturing Projects%3C/text%3E%3C/svg%3E" alt="3D Texturing Projects">
                 </div>
                 <div class="project-content">
-                    <span class="project-category">Academic</span>
-                    <h3 class="project-title">Web Development Platform</h3>
-                    <p class="project-description">Full-stack development platform for building responsive web applications.</p>
+                    <span class="project-category">3D Texturing Projects</span>
+                    <h3 class="project-title">3D Texturing Projects</h3>
+                    <p class="project-description">Detailed textures for 3D models and game assets.</p>
+                </div>
+            </div>
+            <div class="project-card" data-id="5" data-type="freelance">
+                <div class="project-img">
+                    <img src="images/gameass5.png" width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EGame Assets Projects%3C/text%3E%3C/svg%3E" alt="Game Assets">
+                </div>
+                <div class="project-content">
+                    <span class="project-category">3D Game Assets Projects</span>
+                    <h3 class="project-title">Game Assets Projects</h3>
+                    <p class="project-description">High-quality game assets for various genres.</p>
                 </div>
             </div>
             
-            <!-- Freelance Projects -->
-            <div class="project-card" data-id="5" data-type="freelance">
+            <!-- Academic Projects -->
+            <div class="project-card" data-id="6" data-type="academic" style="display: none;">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400" alt="Restaurant Branding">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EC%2B%2B Projects%3C/text%3E%3C/svg%3E" alt="C++ Projects">
                 </div>
                 <div class="project-content">
-                    <span class="project-category">Freelance</span>
-                    <h3 class="project-title">Restaurant Branding</h3>
-                    <p class="project-description">Complete branding package for a premium restaurant chain.</p>
+                    <span class="project-category">Academic</span>
+                    <h3 class="project-title">C++ Projects</h3>
+                    <p class="project-description">Comprehensive software solutions using C++ programming.</p>
                 </div>
             </div>
-            <div class="project-card" data-id="6" data-type="freelance">
+            <div class="project-card" data-id="7" data-type="academic" style="display: none;">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400" alt="E-commerce Logo">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EPython Projects%3C/text%3E%3C/svg%3E" alt="Python Projects">
                 </div>
                 <div class="project-content">
-                    <span class="project-category">Freelance</span>
-                    <h3 class="project-title">E-commerce Logo</h3>
-                    <p class="project-description">Modern logo design for fashion e-commerce startup.</p>
+                    <span class="project-category">Academic</span>
+                    <h3 class="project-title">Python Projects</h3>
+                    <p class="project-description">Data science and machine learning applications.</p>
                 </div>
             </div>
-            <div class="project-card" data-id="7" data-type="freelance">
+            <div class="project-card" data-id="8" data-type="academic" style="display: none;">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400" alt="App Icon Design">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EMatlab Projects%3C/text%3E%3C/svg%3E" alt="Matlab Projects">
                 </div>
                 <div class="project-content">
-                    <span class="project-category">Freelance</span>
-                    <h3 class="project-title">App Icon Design</h3>
-                    <p class="project-description">Set of mobile app icons for fitness tracking application.</p>
+                    <span class="project-category">Academic</span>
+                    <h3 class="project-title">Matlab Projects</h3>
+                    <p class="project-description">Engineering simulations and data analysis.</p>
                 </div>
             </div>
-            <div class="project-card" data-id="8" data-type="freelance">
+            <div class="project-card" data-id="9" data-type="academic" style="display: none;">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=400" alt="Corporate Identity">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EArduino Projects%3C/text%3E%3C/svg%3E" alt="Arduino Projects">
                 </div>
                 <div class="project-content">
-                    <span class="project-category">Freelance</span>
-                    <h3 class="project-title">Corporate Identity</h3>
-                    <p class="project-description">Complete corporate identity design for tech startup.</p>
+                    <span class="project-category">Academic</span>
+                    <h3 class="project-title">Arduino Uno Projects</h3>
+                    <p class="project-description">Hardware and IoT solutions using Arduino.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section - 90% width -->
     <section id="skills" class="skills">
-        <h2 class="section-title">My Skills</h2>
         <div class="skills-container">
-            <div class="skill-category">
-                <h3 class="skill-title"><i class="fas fa-palette"></i> Design Tools</h3>
-                <div class="skill-items">
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fab fa-adobe"></i></div>
-                        <span class="skill-name">Illustrator</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fab fa-adobe"></i></div>
-                        <span class="skill-name">Photoshop</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fas fa-cube"></i></div>
-                        <span class="skill-name">Blender</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
-                        <span class="skill-name">ZBrush</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fas fa-paint-roller"></i></div>
-                        <span class="skill-name">Substance</span>
-                    </div>
+            <div class="tools-card">
+                <div class="tools-title">
+                    <i class="fas fa-palette"></i> Design Tools
                 </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3 class="skill-title"><i class="fas fa-code"></i> Development</h3>
-                <div class="skill-items">
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fab fa-python"></i></div>
-                        <span class="skill-name">Python</span>
+                <div class="tool-grid">
+                    <div class="tool-item">
+                        <i class="fab fa-adobe"></i>
+                        <div class="tool-title">Illustrator</div>
+                        <div class="tool-desc">Vector design tool for icons, branding, and illustrations.</div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fas fa-copyright"></i></div>
-                        <span class="skill-name">C++</span>
+                    <div class="tool-item">
+                        <i class="fab fa-adobe"></i>
+                        <div class="tool-title">Photoshop</div>
+                        <div class="tool-desc">Advanced editing for photos, composites, and digital art.</div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fab fa-js"></i></div>
-                        <span class="skill-name">JavaScript</span>
+                    <div class="tool-item">
+                        <i class="fas fa-cube"></i>
+                        <div class="tool-title">Blender</div>
+                        <div class="tool-desc">3D modeling, animation, and rendering software.</div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fas fa-database"></i></div>
-                        <span class="skill-name">SQL</span>
+                    <div class="tool-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <div class="tool-title">ZBrush</div>
+                        <div class="tool-desc">Digital sculpting for detailed character and asset design.</div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fab fa-html5"></i></div>
-                        <span class="skill-name">HTML5</span>
+                    <div class="tool-item">
+                        <i class="fas fa-fill-drip"></i>
+                        <div class="tool-title">Substance</div>
+                        <div class="tool-desc">Material and texture creation for 3D models.</div>
                     </div>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3 class="skill-title"><i class="fas fa-tools"></i> Tools & Platforms</h3>
-                <div class="skill-items">
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fas fa-terminal"></i></div>
-                        <span class="skill-name">VS Code</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
-                        <span class="skill-name">LeetCode</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-                        <span class="skill-name">Git</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fab fa-figma"></i></div>
-                        <span class="skill-name">Figma</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon"><i class="fab fa-github"></i></div>
-                        <span class="skill-name">GitHub</span>
+                    <div class="tool-item">
+                        <i class="fas fa-code"></i>
+                        <div class="tool-title">Python</div>
+                        <div class="tool-desc">Data analysis, machine learning, and automation.</div>
                     </div>
                 </div>
             </div>
@@ -1165,7 +1318,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Muhammad Saquib Khan. All rights reserved.</p>
+        <p>&copy; 2025 Muhammad Saquib Khan. All rights reserved.</p>
     </footer>
 
     <script>
@@ -1224,8 +1377,14 @@
             });
         });
 
-        // Project tabs
+        // Project tabs functionality
         const tabBtns = document.querySelectorAll('.tab-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        // Initially hide academic projects
+        document.querySelectorAll('.project-card[data-type="academic"]').forEach(card => {
+            card.style.display = 'none';
+        });
         
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -1235,20 +1394,27 @@
                 btn.classList.add('active');
                 
                 const tabType = btn.getAttribute('data-tab');
-                const projectCards = document.querySelectorAll('.project-card');
                 
                 projectCards.forEach(card => {
-                    if (tabType === 'all' || card.getAttribute('data-type') === tabType) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
+                    if (tabType === 'freelance') {
+                        if (card.getAttribute('data-type') === 'freelance') {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    } else if (tabType === 'academic') {
+                        if (card.getAttribute('data-type') === 'academic') {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
                     }
                 });
             });
         });
 
         // Project detail functionality
-        const projectCards = document.querySelectorAll('.project-card');
+        const detailProjectCards = document.querySelectorAll('.project-card');
         const projectDetail = document.getElementById('project-detail');
         const overlay = document.getElementById('overlay');
         const closeDetail = document.getElementById('close-detail');
@@ -1256,8 +1422,169 @@
         const detailCategory = document.getElementById('detail-category');
         const detailDescription = document.getElementById('detail-description');
         
-        projectCards.forEach(card => {
+        // Gallery slider elements
+        const sliderTrack = document.getElementById('slider-track');
+        const sliderDots = document.getElementById('slider-dots');
+        const prevBtn = document.getElementById('prev-slide');
+        const nextBtn = document.getElementById('next-slide');
+        
+        let currentSlide = 0;
+        let slides = [];
+        
+        // Gallery data for each project with local media
+        const projectGalleries = {
+            1: [
+                { type: 'image', src: 'images/logodesign.png' },
+                { type: 'image', src: 'images/logodesign2.png' },
+                { type: 'image', src: 'images/logodesign4.png.svg' },
+                { type: 'image', src: 'images/logo3.jpg' },
+                { type: 'image', src: 'images/logo6.png' }
+            ],
+            2: [
+                { type: 'image', src: 'images/poster 1.jpg' },
+                { type: 'image', src: 'images/poster2.png' },
+                { type: 'image', src: 'images/poster3.png' },
+                { type: 'image', src: 'images/poster4.png' },
+                { type: 'image', src: 'images/poster5.png' },
+                { type: 'image', src: 'images/poster6.png' },
+            ],
+            3: [
+                { type: 'image', src: 'images/3dass2.png' },
+                { type: 'image', src: 'images/3dass3.png' },
+                { type: 'image', src: 'images/3dass4.png' },
+                { type: 'image', src: 'images/3dass5.png' },
+                { type: 'image', src: 'images/3dass6.png' },
+                { type: 'video', src: 'videos/3d_print_demo.mp4', poster: 'images/3d_print_poster.jpg' }
+            ],
+            4: [
+                { type: 'image', src: 'images/Mechanical.png' },
+                { type: 'image', src: 'images/Robotic dog.png' },
+                { type: 'image', src: 'images/Wrench.png' },
+                { type: 'image', src: 'images/creaturegrey.png' },
+                { type: 'image', src: 'images/creature.png' }
+            ],
+            5: [
+                { type: 'image', src: 'images/gameass1.png' },
+                { type: 'image', src: 'images/gameass2.png' },
+                { type: 'image', src: 'images/gameass3.png' },
+                { type: 'image', src: 'images/gameass4.png' },
+                { type: 'video', src: 'videos/game_asset_demo.mp4', poster: 'images/game_asset_poster.jpg' }
+            ],
+            6: [
+                { type: 'image', src: 'images/cpp_project1.jpg' },
+                { type: 'image', src: 'images/cpp_project2.jpg' }
+            ],
+            7: [
+                { type: 'image', src: 'images/python_project1.jpg' },
+                { type: 'image', src: 'images/python_project2.jpg' }
+            ],
+            8: [
+                { type: 'image', src: 'images/matlab_project1.jpg' },
+                { type: 'image', src: 'images/matlab_project2.jpg' }
+            ],
+            9: [
+                { type: 'image', src: 'images/arduino_project1.jpg' },
+                { type: 'video', src: 'videos/arduino_demo.mp4', poster: 'images/arduino_poster.jpg' }
+            ]
+        };
+        
+        // Initialize slider for a project
+        function initSlider(projectId) {
+            sliderTrack.innerHTML = '';
+            sliderDots.innerHTML = '';
+            currentSlide = 0;
+            slides = projectGalleries[projectId] || [];
+            
+            slides.forEach((slide, index) => {
+                // Create slide
+                const slideElement = document.createElement('div');
+                slideElement.className = 'slide';
+                
+                if (slide.type === 'image') {
+                    const img = document.createElement('img');
+                    img.src = slide.src;
+                    img.alt = `Project image ${index + 1}`;
+                    slideElement.appendChild(img);
+                } else if (slide.type === 'video') {
+                    const video = document.createElement('video');
+                    video.src = slide.src;
+                    video.controls = true;
+                    video.autoplay = false;
+                    video.muted = true;
+                    video.style.width = '100%';
+                    video.style.height = '100%';
+                    video.style.objectFit = 'contain';
+                    
+                    if (slide.poster) {
+                        video.poster = slide.poster;
+                    }
+                    
+                    slideElement.appendChild(video);
+                }
+                
+                sliderTrack.appendChild(slideElement);
+                
+                // Create dot
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                dot.dataset.index = index;
+                if (index === 0) dot.classList.add('active');
+                
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+                
+                sliderDots.appendChild(dot);
+            });
+            
+            updateSlider();
+        }
+        
+        // Update slider position
+        function updateSlider() {
+            sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update active dot
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        // Go to specific slide
+        function goToSlide(index) {
+            if (index < 0 || index >= slides.length) return;
+            currentSlide = index;
+            updateSlider();
+        }
+        
+        // Next slide
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+            } else {
+                currentSlide = 0;
+            }
+            updateSlider();
+        });
+        
+        // Previous slide
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+            } else {
+                currentSlide = slides.length - 1;
+            }
+            updateSlider();
+        });
+        
+        // Open project detail
+        detailProjectCards.forEach(card => {
             card.addEventListener('click', () => {
+                const id = card.getAttribute('data-id');
                 const title = card.querySelector('.project-title').textContent;
                 const category = card.querySelector('.project-category').textContent;
                 const description = card.querySelector('.project-description').textContent;
@@ -1265,6 +1592,9 @@
                 detailTitle.textContent = title;
                 detailCategory.textContent = category;
                 detailDescription.textContent = description;
+                
+                // Initialize slider with project gallery
+                initSlider(id);
                 
                 projectDetail.classList.add('active');
                 overlay.classList.add('active');
