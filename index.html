@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Saquib Khan - Portfolio</title>
+    <title>Muhammad Saquib Khan - 3D Modeling & Printing Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --neon-yellow: #f9ff00;
+            --neon-blue: #00f3ff;
+            --neon-green: #00ff9c;
             --dark-blue: #0a192f;
             --light-gray: #ccd6f6;
             --medium-gray: #8892b0;
-            --blue: #00FF9C;
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
@@ -48,7 +48,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--neon-yellow);
+            color: var(--neon-blue);
             text-decoration: none;
         }
 
@@ -72,7 +72,7 @@
         }
 
         nav ul li a:hover {
-            color: var(--neon-yellow);
+            color: var(--neon-blue);
         }
 
         nav ul li a::after {
@@ -82,7 +82,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--neon-yellow);
+            background: var(--neon-blue);
             transition: var(--transition);
         }
 
@@ -120,7 +120,7 @@
         }
 
         .hero h1 span {
-            color: var(--neon-yellow);
+            color: var(--neon-blue);
         }
 
         .rotating-text {
@@ -153,8 +153,8 @@
             display: inline-block;
             padding: 0.9rem 2rem;
             background: transparent;
-            border: 1px solid var(--neon-yellow);
-            color: var(--neon-yellow);
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
             font-size: 1rem;
             font-weight: 500;
             text-decoration: none;
@@ -165,20 +165,21 @@
         }
 
         .btn:hover {
-            background: rgba(249, 255, 0, 0.1);
+            background: rgba(0, 243, 255, 0.1);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(249, 255, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 243, 255, 0.2);
         }
 
         .btn-primary {
-            background: var(--neon-yellow);
+            background: var(--neon-blue);
             color: var(--dark-blue);
-            border: 1px solid var(--neon-yellow);
+            border: 1px solid var(--neon-blue);
+            font-weight: 600;
         }
 
         .btn-primary:hover {
             background: transparent;
-            color: var(--neon-yellow);
+            color: var(--neon-blue);
         }
 
         .profile-container {
@@ -189,13 +190,13 @@
             width: 350px;
             height: 350px;
             border-radius: 50%;
-            border: 3px solid var(--neon-yellow);
+            border: 3px solid var(--neon-blue);
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             animation: rotateBorder 8s linear infinite;
-            box-shadow: 0 0 30px rgba(249, 255, 0, 0.3);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
         }
 
         .profile-container::before {
@@ -203,7 +204,7 @@
             position: absolute;
             width: 150%;
             height: 150%;
-            background: conic-gradient(transparent, var(--neon-yellow), transparent);
+            background: conic-gradient(transparent, var(--neon-blue), transparent);
             animation: rotate 3s linear infinite;
         }
 
@@ -258,10 +259,10 @@
             left: 0;
             width: 70px;
             height: 4px;
-            background: var(--neon-yellow);
+            background: var(--neon-blue);
         }
 
-        /* Intro Section - Updated for two-column layout */
+        /* Intro Section */
         .intro-container {
             display: flex;
             gap: 4rem;
@@ -280,16 +281,16 @@
         }
 
         .highlight {
-            color: var(--neon-yellow);
+            color: var(--neon-blue);
             font-weight: 500;
         }
 
         .highlight1 {
-            color: var(--blue);
+            color: var(--neon-green);
             font-weight: 500;
         }
 
-        /* Animated Rectangle Frame for About Me */
+        /* About Me Frame */
         .about-container {
             position: relative;
             width: 400px;
@@ -299,7 +300,7 @@
             align-items: center;
             overflow: hidden;
             animation: rotateBorder 8s linear infinite;
-            box-shadow: 0 0 30px rgba(249, 255, 0, 0.3);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
         }
 
         .about-container::before {
@@ -307,7 +308,7 @@
             position: absolute;
             width: 150%;
             height: 150%;
-            background: conic-gradient(transparent, var(--neon-yellow), transparent);
+            background: conic-gradient(transparent, var(--neon-blue), transparent);
             animation: rotate 3s linear infinite;
         }
 
@@ -337,39 +338,7 @@
             object-fit: cover;
         }
 
-        /* Projects Section */
-        .projects-tabs {
-            display: flex;
-            margin-bottom: 2.5rem;
-            border-bottom: 1px solid var(--medium-gray);
-        }
-
-        .tab-btn {
-            padding: 1rem 2rem;
-            background: transparent;
-            border: none;
-            color: var(--medium-gray);
-            font-size: 1.1rem;
-            font-weight: 500;
-            cursor: pointer;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .tab-btn.active {
-            color: var(--neon-yellow);
-        }
-
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--neon-yellow);
-        }
-
+        /* Projects Section - UPDATED FOR FULL IMAGE DISPLAY */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -385,37 +354,41 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(249, 255, 0, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 243, 255, 0.2);
         }
 
-        .project-img {
-            height: 200px;
-            background: var(--medium-gray);
+        .project-img-container {
+            height: 300px; /* Increased height for better image display */
             display: flex;
             justify-content: center;
             align-items: center;
-            color: var(--dark-blue);
-            font-size: 2rem;
             overflow: hidden;
+            position: relative;
+            background: rgba(17, 34, 64, 0.5);
         }
 
-        .project-img img {
+        .project-img-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* Changed to contain for full image display */
             transition: transform 0.5s ease;
         }
 
-        .project-card:hover .project-img img {
-            transform: scale(1.1);
+        .project-card:hover .project-img-container img {
+            transform: scale(1.05);
         }
 
         .project-content {
             padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-title {
@@ -427,8 +400,8 @@
         .project-category {
             display: inline-block;
             padding: 0.3rem 0.8rem;
-            background: rgba(249, 255, 0, 0.1);
-            color: var(--neon-yellow);
+            background: rgba(0, 243, 255, 0.1);
+            color: var(--neon-blue);
             border-radius: 20px;
             font-size: 0.8rem;
             margin-bottom: 1rem;
@@ -437,9 +410,10 @@
         .project-description {
             font-size: 0.95rem;
             color: var(--medium-gray);
+            flex-grow: 1;
         }
 
-        /* Project Detail Card - Updated with slider */
+        /* Project Detail Modal - UPDATED FOR FULL IMAGE DISPLAY */
         .project-detail {
             position: fixed;
             top: 50%;
@@ -449,7 +423,7 @@
             max-width: 900px;
             max-height: 90vh;
             background: var(--dark-blue);
-            border: 2px solid var(--neon-yellow);
+            border: 2px solid var(--neon-blue);
             border-radius: 15px;
             z-index: 2000;
             overflow-y: auto;
@@ -472,7 +446,7 @@
 
         .detail-title {
             font-size: 2rem;
-            color: var(--neon-yellow);
+            color: var(--neon-blue);
         }
 
         .close-btn {
@@ -485,143 +459,156 @@
         }
 
         .close-btn:hover {
-            color: var(--neon-yellow);
+            color: var(--neon-blue);
             transform: rotate(90deg);
         }
 
         .detail-category {
             display: inline-block;
             padding: 0.5rem 1.2rem;
-            background: rgba(249, 255, 0, 0.1);
-            color: var(--neon-yellow);
+            background: rgba(0, 243, 255, 0.1);
+            color: var(--neon-blue);
             border-radius: 20px;
             font-size: 1rem;
             margin-bottom: 1.5rem;
         }
 
-        /* Gallery Slider */
-        .gallery-slider {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            margin-bottom: 2rem;
-            overflow: hidden;
+        .project-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(17, 34, 64, 0.3);
             border-radius: 8px;
-            border: 1px solid var(--medium-gray);
         }
 
-        .slider-track {
+        .detail-item {
+            padding: 1rem;
+            border-left: 3px solid var(--neon-blue);
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: var(--neon-green);
+            margin-bottom: 0.3rem;
+        }
+
+        .detail-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Project Gallery - UPDATED FOR FULL IMAGE DISPLAY */
+        .project-gallery {
+            margin: 2rem 0;
+        }
+
+        .gallery-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--neon-green);
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .gallery-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 70%;
+            background: var(--neon-blue);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            height: 300px; /* Increased height */
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            background: rgba(17, 34, 64, 0.5);
             display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item img {
+            width: 100%;
             height: 100%;
+            object-fit: contain; /* Changed to contain for full image display */
             transition: transform 0.5s ease;
         }
 
-        .slide {
-            min-width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
 
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .slide video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .slider-nav {
+        .ref-label {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 1rem;
-            z-index: 10;
-        }
-
-        .slider-btn {
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .slider-btn:hover {
-            background: var(--neon-yellow);
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 243, 255, 0.85);
             color: var(--dark-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 20;
         }
 
-        .slider-dots {
+        /* Project highlights */
+        .project-highlights {
+            margin: 2rem 0;
+        }
+
+        .highlight-title {
+            font-size: 1.3rem;
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-list {
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+
+        .highlight-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .highlight-list li::before {
+            content: '';
             position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
+            left: 0;
+            top: 7px;
+            width: 8px;
+            height: 8px;
+            background: var(--neon-blue);
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .dot.active {
-            background: var(--neon-yellow);
-        }
-
-        .detail-description {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
+            box-shadow: 0 0 5px rgba(0, 243, 255, 0.7);
         }
 
         .detail-footer {
             display: flex;
-            justify-content: flex-end;
             gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1500;
-            display: none;
-        }
-
-        .overlay.active {
-            display: block;
-        }
-
-        /* Skills Section - 90% width */
+        /* Skills Section - UPDATED FOR ONLY BLENDER & ZBRUSH */
         .skills-container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 800px; /* Reduced width */
             margin: 0 auto;
             padding: 3rem 0;
         }
@@ -634,11 +621,12 @@
         }
 
         .tools-title {
-            color: #e1ff00;
+            color: var(--neon-blue);
             font-size: 24px;
             margin-bottom: 25px;
             display: flex;
             align-items: center;
+            justify-content: center;
         }
 
         .tools-title i {
@@ -646,41 +634,47 @@
         }
 
         .tool-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
         .tool-item {
             background-color: #1a2b4c;
-            padding: 15px;
+            padding: 30px;
             border-radius: 12px;
             text-align: center;
-            color: #e1ff00;
-            transition: 0.3s ease;
+            color: var(--neon-blue);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 280px;
         }
 
         .tool-item:hover {
             transform: translateY(-5px);
             background-color: #223a60;
+            box-shadow: 0 10px 20px rgba(0, 243, 255, 0.2);
         }
 
         .tool-item i {
-            font-size: 26px;
-            margin-bottom: 10px;
-            color: #e1ff00;
+            font-size: 4rem;
+            margin-bottom: 25px;
+            color: var(--neon-blue);
         }
 
         .tool-title {
             font-weight: bold;
-            margin-bottom: 6px;
-            font-size: 15px;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
         }
 
         .tool-desc {
-            font-size: 12px;
-            color: #cccccc;
-            line-height: 1.4;
+            font-size: 1rem;
+            color: var(--light-gray);
+            line-height: 1.6;
         }
 
         /* Why Me Section */
@@ -706,7 +700,7 @@
 
         .benefit-icon {
             font-size: 2.5rem;
-            color: var(--neon-yellow);
+            color: var(--neon-blue);
             margin-bottom: 1.5rem;
             transition: var(--transition);
         }
@@ -726,6 +720,95 @@
             line-height: 1.7;
         }
 
+        /* Reviews Section */
+        .reviews-section {
+            padding: 8rem 10%;
+            background: linear-gradient(to bottom, #0a192f, #0f1a35);
+        }
+        
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .review-card {
+            background: rgba(17, 34, 64, 0.5);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .review-image {
+            width: 400px;
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            background: #0f1a35;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .review-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+        
+        .review-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--light-gray);
+            line-height: 1.7;
+        }
+        
+        .review-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--neon-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+            font-weight: bold;
+            color: var(--dark-blue);
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            color: var(--neon-blue);
+        }
+        
+        .author-position {
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            color: var(--neon-blue);
+            margin-top: 0.5rem;
+        }
+
         /* Contact Section */
         .contact-container {
             display: flex;
@@ -735,32 +818,35 @@
 
         .contact-info {
             flex: 1;
+            text-align: center;
         }
 
         .social-icons {
             display: flex;
+            justify-content: center;
             gap: 1.5rem;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
         .social-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: rgba(249, 255, 0, 0.1);
+            background: rgba(0, 243, 255, 0.1);
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
-            color: var(--neon-yellow);
+            font-size: 1.8rem;
+            color: var(--neon-blue);
             transition: var(--transition);
             text-decoration: none;
         }
 
         .social-icon:hover {
-            background: rgba(249, 255, 0, 0.2);
+            background: rgba(0, 243, 255, 0.2);
             transform: translateY(-5px);
-            box-shadow: 0 0 15px rgba(249, 255, 0, 0.3);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
         }
 
         .scroll-indicator {
@@ -785,9 +871,9 @@
         }
 
         .circle.active {
-            background: var(--neon-yellow);
+            background: var(--neon-blue);
             transform: scale(1.3);
-            box-shadow: 0 0 10px rgba(249, 255, 0, 0.5);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
         }
 
         /* Footer */
@@ -797,6 +883,22 @@
             color: var(--medium-gray);
             font-size: 0.9rem;
             border-top: 1px solid rgba(136, 146, 176, 0.2);
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1500;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
         }
 
         /* Animations */
@@ -811,13 +913,13 @@
 
         @keyframes rotateBorder {
             0% {
-                box-shadow: 0 0 0 0 rgba(249, 255, 0, 0.7);
+                box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.7);
             }
             70% {
-                box-shadow: 0 0 0 20px rgba(249, 255, 0, 0);
+                box-shadow: 0 0 0 20px rgba(0, 243, 255, 0);
             }
             100% {
-                box-shadow: 0 0 0 0 rgba(249, 255, 0, 0);
+                box-shadow: 0 0 0 0 rgba(0, 243, 255, 0);
             }
         }
 
@@ -909,8 +1011,8 @@
                 flex-direction: column;
             }
             
-            .gallery-slider {
-                height: 300px;
+            .gallery-item {
+                height: 200px;
             }
         }
 
@@ -945,7 +1047,7 @@
                 grid-template-columns: 1fr;
             }
             
-            .skills-container, .benefits {
+            .skills-container, .benefits, .reviews-container {
                 grid-template-columns: 1fr;
             }
             
@@ -962,8 +1064,8 @@
                 padding: 20px;
             }
             
-            .gallery-slider {
-                height: 250px;
+            .gallery-grid {
+                grid-template-columns: 1fr;
             }
             
             .about-container {
@@ -980,13 +1082,22 @@
                 width: 280px;
                 height: 380px;
             }
+            
+            .detail-footer {
+                flex-direction: column;
+            }
+            
+            .review-image {
+                height: 160px;
+            }
+
+            .tool-grid {
+                flex-direction: column;
+                align-items: center;
+            }
         }
         
         @media (max-width: 480px) {
-            .gallery-slider {
-                height: 200px;
-            }
-            
             .about-container {
                 width: 250px;
                 height: 330px;
@@ -1001,6 +1112,14 @@
                 width: 230px;
                 height: 310px;
             }
+            
+            .review-image {
+                height: 140px;
+            }
+            
+            .gallery-item {
+                height: 180px;
+            }
         }
     </style>
 </head>
@@ -1013,6 +1132,7 @@
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#intro">About</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#why-me">Why Me</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -1023,10 +1143,10 @@
         </div>
     </header>
 
-    <!-- Overlay for project detail -->
+    <!-- Overlay for modals -->
     <div class="overlay" id="overlay"></div>
 
-    <!-- Project Detail Card with Slider -->
+    <!-- Project Detail Modal -->
     <div class="project-detail" id="project-detail">
         <div class="detail-header">
             <h3 class="detail-title" id="detail-title">Project Title</h3>
@@ -1034,24 +1154,29 @@
         </div>
         <span class="detail-category" id="detail-category">Category</span>
         
-        <div class="gallery-slider">
-            <div class="slider-track" id="slider-track">
-                <!-- Slides will be added here dynamically -->
-            </div>
-            <div class="slider-nav">
-                <button class="slider-btn" id="prev-slide"><i class="fas fa-chevron-left"></i></button>
-                <button class="slider-btn" id="next-slide"><i class="fas fa-chevron-right"></i></button>
-            </div>
-            <div class="slider-dots" id="slider-dots">
-                <!-- Dots will be added here dynamically -->
+        <div class="project-gallery">
+            <h4 class="gallery-title">Reference Image</h4>
+            <div class="gallery-grid" id="reference-grid">
+                <!-- Reference images will be added here -->
             </div>
         </div>
         
-        <p class="detail-description" id="detail-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="project-details-grid" id="project-details">
+            <!-- Details will be added dynamically -->
+        </div>
         
-        <div class="detail-footer">
-            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="#" class="btn btn-primary"><i class="fab fa-github"></i> Source Code</a>
+        <div class="project-highlights">
+            <h4 class="highlight-title">Project Highlights</h4>
+            <ul class="highlight-list" id="highlight-list">
+                <!-- Highlights will be added dynamically -->
+            </ul>
+        </div>
+        
+        <div class="project-gallery">
+            <h4 class="gallery-title">Project Gallery</h4>
+            <div class="gallery-grid" id="project-gallery-grid">
+                <!-- Project images will be added here -->
+            </div>
         </div>
     </div>
 
@@ -1061,41 +1186,41 @@
             <h1>Muhammad <span>Saquib Khan</span></h1>
             <div class="rotating-text">
                 <div>
-                    <span>Graphic Designer</span>
-                    <span>2D/3D Artist</span>
-                    <span>Data Science Student</span>
-                    <span>Logo Designer</span>
-                    <span>Brand Identity Expert</span>
+                    <span>3D Modeler</span>
+                    <span>3D Sculpture Expert</span>
+                    <span>3D Printing Specialist</span>
+                    <span>Character Designer</span>
+                    <span>Hard Surface Modeler</span>
                 </div>
             </div>
-            <p>Creative designer specializing in logo design, brand identity, and visual communication with 2+ years of freelance experience. Student of Data Science.</p>
+            <p>Professional 3D artist specializing in character design, hard surface modeling, and 3D printing with 3+ years of experience. Creating production-ready models for digital and physical fabrication.</p>
             <div class="hero-btns">
                 <a href="Muhammad Saquib Khan CV.pdf" class="btn btn-primary" id="download-cv">Download CV</a>
-                <a href="#contact" class="btn">Work With Me</a>
+                <a href="#contact" class="btn">Start a Project</a>
             </div>
         </div>
         <div class="profile-container">
             <div class="profile-img">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg, #0a192f, #1a3a6d);display:flex;justify-content:center;align-items:center;color:var(--neon-yellow);font-size:1.2rem;text-align:center;">
+                <div style="width:100%;height:100%;background:linear-gradient(135deg, #0a192f, #1a3a6d);display:flex;justify-content:center;align-items:center;color:var(--neon-blue);font-size:1.2rem;text-align:center;">
                     <img src="images\Muhammad Saquib Khan.jpg" alt="Muhammad Saquib Khan">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Intro Section with Two Columns -->
+    <!-- Intro Section -->
     <section id="intro" class="intro">
         <h2 class="section-title">About Me</h2>
         <div class="intro-container">
             <div class="intro-content">
-                <p>I'm a creative and detail-oriented <span class="highlight">Logo Designer</span> with <span class="highlight1">2+ years of freelance experience</span> delivering unique and tailored visual identities to clients on platforms like Fiverr, Facebook, and WhatsApp. I specialize in crafting custom logos that reflect brand values and stand out in competitive markets. With strong communication skills and a professional workflow, I ensure every design meets client expectations while maintaining high quality and timely delivery.</p>
-                <p>I also work extensively in <span class="highlight">3D design,</span> creating high-detail sculptures, 3D print-ready models, and textured assets for digital or physical use. Using tools like <span class="highlight1">Blender, Substance Painter and ZBrush,</span> I bring concepts to life with a focus on realism, form, and function. Whether it’s character models, props, or product prototypes, I aim to deliver clean, production-ready results for both digital visualization and physical fabrication.</p>
-                <p>In addition to logo design, I offer a range of <span class="highlight">2D design services</span> including minimalist logos, poster designs, food menus, and social media graphics. My approach combines simplicity with strong visual appeal, using effective color theory and typography to create designs that communicate clearly and leave a lasting impression.</p>
-                <a href="Muhammad Saquib Khan CV.pdf" class="btn btn-primary" id="download-cv">Download CV</a>
+                <p>I'm a professional <span class="highlight">3D Modeler and Sculpture Artist</span> with <span class="highlight1">3+ years of specialized experience</span> in creating intricate 3D models exclusively for 3D printing. I specialize in transforming concepts into production-ready sculpts optimized for physical fabrication.</p>
+                <p>My expertise spans both organic character design and hard surface modeling, with a focus on creating models with perfect topology and structural integrity. I work exclusively with <span class="highlight1">Blender and ZBrush</span> to deliver models that meet the highest standards for 3D printing.</p>
+                <p>I approach every project with a problem-solving mindset, ensuring each sculpt is not only visually stunning but also technically sound for physical fabrication. Whether it's for collectibles, figurines, or prototypes, I deliver clean, optimized models ready for printing.</p>
+                <a href="#contact" class="btn btn-primary">Contact Me</a>
             </div>
             <div class="about-container">
                 <div class="about-img">
-                    <div style="width:100%;height:100%;background:linear-gradient(135deg, #0a192f, #1a3a6d);display:flex;justify-content:center;align-items:center;color:var(--neon-yellow);font-size:1.2rem;text-align:center;">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg, #0a192f, #1a3a6d);display:flex;justify-content:center;align-items:center;color:var(--neon-blue);font-size:1.2rem;text-align:center;">
                         <img src="images\Saquib Intro.jpg" alt="Muhammad Saquib Khan">
                     </div>
                 </div>
@@ -1103,147 +1228,167 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section - UPDATED FOR FULL IMAGE DISPLAY -->
     <section id="projects" class="projects">
-        <h2 class="section-title">My Projects</h2>
-        <div class="projects-tabs">
-            <button class="tab-btn active" data-tab="freelance">Freelance Projects</button>
-            <button class="tab-btn" data-tab="academic">Academic Projects</button>
-        </div>
+        <h2 class="section-title">3D Printing Projects</h2>
         <div class="projects-grid">
-            <!-- Freelance Projects -->
-            <div class="project-card" data-id="1" data-type="freelance">
-                <div class="project-img">
-                    <img src="images\sglogo.jpg" width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3ELogo Design Projects%3C/text%3E%3C/svg%3E" alt="Logo Design">
+            <!-- 3D Printing Projects -->
+            <div class="project-card" data-id="tony-model">
+                <div class="project-img-container">
+                    <img src="p1/r2.jpg" alt="Character Sculpture">
                 </div>
                 <div class="project-content">
-                    <span class="project-category">2D Design Projects</span>
-                    <h3 class="project-title">Logo Design Projects on Fiverr</h3>
-                    <p class="project-description">Work that I have done in 2+ years on fiverr. These include minimal logos, business logo and ship copamny logos.</p>
+                    <span class="project-category">Character Sculpture</span>
+                    <h3 class="project-title">Tony Model from Rough Sketch</h3>
+                    <p class="project-description">Created a detailed 3D character model from client's rough sketch concept.</p>
                 </div>
             </div>
-            <div class="project-card" data-id="2" data-type="freelance">
-                <div class="project-img">
-                    <img src="images\poster.jpg" width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EPoster Designs%3C/text%3E%3C/svg%3E" alt="Poster Designs">
+            <div class="project-card" data-id="cartoon-boxer">
+                <div class="project-img-container">
+                    <img src="p2/cov.jpg" alt="Stylized Character">
                 </div>
                 <div class="project-content">
-                    <span class="project-category">2D Design Projects</span>
-                    <h3 class="project-title">Poster Designs</h3>
-                    <p class="project-description">Modern poster designs for events and promotions.</p>
+                    <span class="project-category">Stylized Character</span>
+                    <h3 class="project-title">3D Cartoon Boxer Character</h3>
+                    <p class="project-description">Stylized cartoon boxer character with exaggerated features for 3D printing.</p>
                 </div>
             </div>
-            <div class="project-card" data-id="3" data-type="freelance">
-                <div class="project-img">
-                    <img src="images\3dass1.png" width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3E3D Print Projects%3C/text%3E%3C/svg%3E" alt="3D Print Projects">
+            <div class="project-card" data-id="night-wing">
+                <div class="project-img-container">
+                    <img src="p3/cov.jpg" alt="Superhero Statue">
                 </div>
                 <div class="project-content">
-                    <span class="project-category">3D Printing Projects</span>
-                    <h3 class="project-title">Print Ready Projects</h3>
-                    <p class="project-description">3D print-ready models for various applications.</p>
+                    <span class="project-category">Superhero Statue</span>
+                    <h3 class="project-title">Night Wing Character Sculpture</h3>
+                    <p class="project-description">Detailed Night Wing character statue with custom base for 3D printing.</p>
                 </div>
             </div>
-            <div class="project-card" data-id="4" data-type="freelance">
-                <div class="project-img">
-                    <img src="images\robo.png" width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3E3D Texturing Projects%3C/text%3E%3C/svg%3E" alt="3D Texturing Projects">
+            <div class="project-card" data-id="fantasy-warrior">
+                <div class="project-img-container">
+                    <img src="p4/r3.jpg" alt="Character Design">
                 </div>
                 <div class="project-content">
-                    <span class="project-category">3D Texturing Projects</span>
-                    <h3 class="project-title">3D Texturing Projects</h3>
-                    <p class="project-description">Detailed textures for 3D models and game assets.</p>
+                    <span class="project-category">Original Character</span>
+                    <h3 class="project-title">Fantasy Warrior Sculpture</h3>
+                    <p class="project-description">Original fantasy warrior character from concept to 3D printable model.</p>
                 </div>
             </div>
-            <div class="project-card" data-id="5" data-type="freelance">
-                <div class="project-img">
-                    <img src="images/gameass5.png" width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EGame Assets Projects%3C/text%3E%3C/svg%3E" alt="Game Assets">
+            <div class="project-card" data-id="mecha-robot">
+                <div class="project-img-container">
+                    <img src="p5/cov.jpg" alt="Hard Surface Modeling">
                 </div>
                 <div class="project-content">
-                    <span class="project-category">3D Game Assets Projects</span>
-                    <h3 class="project-title">Game Assets Projects</h3>
-                    <p class="project-description">High-quality game assets for various genres.</p>
+                    <span class="project-category">Hard Surface Modeling</span>
+                    <h3 class="project-title">Mecha Robot Design</h3>
+                    <p class="project-description">Complex mecha robot with intricate mechanical details for 3D printing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <h2 class="section-title">Client Reviews</h2>
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="review-image">
+                    <img src="review 1.jpg" alt="Client Review">
+                </div>
+                <div class="review-author">
+                    <div class="author-avatar">K</div>
+                    <div class="author-info">
+                        <div class="author-name">KHAED</div>
+                        <div class="author-position">FIVERR Client, USA</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <!-- Academic Projects -->
-            <div class="project-card" data-id="6" data-type="academic" style="display: none;">
-                <div class="project-img">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EC%2B%2B Projects%3C/text%3E%3C/svg%3E" alt="C++ Projects">
+            <div class="review-card">
+                <div class="review-image">
+                    <img src="review2.jpg" alt="Client Review">
                 </div>
-                <div class="project-content">
-                    <span class="project-category">Academic</span>
-                    <h3 class="project-title">C++ Projects</h3>
-                    <p class="project-description">Comprehensive software solutions using C++ programming.</p>
-                </div>
-            </div>
-            <div class="project-card" data-id="7" data-type="academic" style="display: none;">
-                <div class="project-img">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EPython Projects%3C/text%3E%3C/svg%3E" alt="Python Projects">
-                </div>
-                <div class="project-content">
-                    <span class="project-category">Academic</span>
-                    <h3 class="project-title">Python Projects</h3>
-                    <p class="project-description">Data science and machine learning applications.</p>
+                <div class="review-author">
+                    <div class="author-avatar">ES</div>
+                    <div class="author-info">
+                        <div class="author-name">STEVEN</div>
+                        <div class="author-position">FIVERR Client, UK</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="project-card" data-id="8" data-type="academic" style="display: none;">
-                <div class="project-img">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EMatlab Projects%3C/text%3E%3C/svg%3E" alt="Matlab Projects">
+            
+            <div class="review-card">
+                <div class="review-image">
+                    <img src="review4.jpg" alt="Client Review">
                 </div>
-                <div class="project-content">
-                    <span class="project-category">Academic</span>
-                    <h3 class="project-title">Matlab Projects</h3>
-                    <p class="project-description">Engineering simulations and data analysis.</p>
+                <div class="review-author">
+                    <div class="author-avatar">ZB</div>
+                    <div class="author-info">
+                        <div class="author-name">ZAHABIYYA</div>
+                        <div class="author-position">FIVERR Client, UK</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="project-card" data-id="9" data-type="academic" style="display: none;">
-                <div class="project-img">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23112244' width='400' height='200'/%3E%3Ctext fill='%23f9ff00' font-family='Arial' font-size='20' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EArduino Projects%3C/text%3E%3C/svg%3E" alt="Arduino Projects">
+             <div class="review-card">
+                <div class="review-image">
+                    <img src="Review3.jpg" alt="Client Review">
                 </div>
-                <div class="project-content">
-                    <span class="project-category">Academic</span>
-                    <h3 class="project-title">Arduino Uno Projects</h3>
-                    <p class="project-description">Hardware and IoT solutions using Arduino.</p>
+                <div class="review-author">
+                    <div class="author-avatar">MA</div>
+                    <div class="author-info">
+                        <div class="author-name">MATEO MIA</div>
+                        <div class="author-position">FIVERR Client, USA</div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section - 90% width -->
+    <!-- Skills Section - UPDATED FOR ONLY BLENDER & ZBRUSH -->
     <section id="skills" class="skills">
+        <h2 class="section-title">Software Expertise</h2>
         <div class="skills-container">
             <div class="tools-card">
                 <div class="tools-title">
-                    <i class="fas fa-palette"></i> Design Tools
+                    <i class="fas fa-cube"></i> 3D Modeling & Sculpting
                 </div>
                 <div class="tool-grid">
                     <div class="tool-item">
-                        <i class="fab fa-adobe"></i>
-                        <div class="tool-title">Illustrator</div>
-                        <div class="tool-desc">Vector design tool for icons, branding, and illustrations.</div>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fab fa-adobe"></i>
-                        <div class="tool-title">Photoshop</div>
-                        <div class="tool-desc">Advanced editing for photos, composites, and digital art.</div>
-                    </div>
-                    <div class="tool-item">
                         <i class="fas fa-cube"></i>
                         <div class="tool-title">Blender</div>
-                        <div class="tool-desc">3D modeling, animation, and rendering software.</div>
+                        <div class="tool-desc">Modeling, sculpting, and preparing models for 3D printing. Creating production-ready assets optimized for physical fabrication.</div>
                     </div>
                     <div class="tool-item">
                         <i class="fas fa-paint-brush"></i>
                         <div class="tool-title">ZBrush</div>
-                        <div class="tool-desc">Digital sculpting for detailed character and asset design.</div>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-fill-drip"></i>
-                        <div class="tool-title">Substance</div>
-                        <div class="tool-desc">Material and texture creation for 3D models.</div>
-                    </div>
-                    <div class="tool-item">
-                        <i class="fas fa-code"></i>
-                        <div class="tool-title">Python</div>
-                        <div class="tool-desc">Data analysis, machine learning, and automation.</div>
+                        <div class="tool-desc">Digital sculpting for detailed character and asset design. Creating high-resolution models perfect for 3D printing.</div>
                     </div>
                 </div>
             </div>
@@ -1272,7 +1417,7 @@
             <div class="benefit-card">
                 <div class="benefit-icon"><i class="fas fa-lightbulb"></i></div>
                 <h3 class="benefit-title">Creative Solutions</h3>
-                <p class="benefit-description">I combine technical expertise with creative thinking to deliver innovative solutions that make your brand stand out in the marketplace.</p>
+                <p class="benefit-description">I combine technical expertise with creative thinking to deliver innovative solutions that make your project stand out.</p>
             </div>
             <div class="benefit-card">
                 <div class="benefit-icon"><i class="fas fa-comments"></i></div>
@@ -1292,15 +1437,13 @@
         <h2 class="section-title">Work With Me</h2>
         <div class="contact-container">
             <div class="contact-info">
-                <p>Ready to start a project or have any questions? Feel free to reach out!</p>
+                <p>Ready to start a 3D project or have any questions? Feel free to reach out!</p>
                 <p>I'm available for freelance projects and collaborations. Let's create something amazing together.</p>
                 
                 <div class="social-icons">
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-fiverr"></i></a>
+                    <a href="https://www.linkedin.com/in/muhammadsaquibkhan/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="http://Wa.me/+923218573251" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.fiverr.com/msaad1698" class="social-icon"><span class="fi-text">Fi</span></a>
                 </div>
             </div>
         </div>
@@ -1311,6 +1454,7 @@
         <div class="circle active" data-section="hero"></div>
         <div class="circle" data-section="intro"></div>
         <div class="circle" data-section="projects"></div>
+        <div class="circle" data-section="reviews"></div>
         <div class="circle" data-section="skills"></div>
         <div class="circle" data-section="why-me"></div>
         <div class="circle" data-section="contact"></div>
@@ -1318,10 +1462,134 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Muhammad Saquib Khan. All rights reserved.</p>
+        <p>&copy; 2025 Muhammad Saquib Khan. Professional 3D Modeler & Printing Specialist. All rights reserved.</p>
     </footer>
 
     <script>
+        // Project data with details
+        const projectData = {
+            "tony-model": {
+                title: "Tony Model from Rough Sketch",
+                category: "Character Sculpture",
+                description: "Created a detailed 3D character model from client's rough sketch concept. The project involved sculpting, retopology, UV unwrapping, and texture painting to achieve a production-ready model for 3D printing.",
+                pricing: "$250",
+                duration: "2 weeks",
+                tools: "Blender, ZBrush",
+                highlights: [
+                    "Designed character from minimal reference material",
+                    "Created detailed accessories and props",
+                    "Optimized topology for 3D printing",
+                    "Added intricate surface details for realism",
+                    "Exported as STL for print-ready production"
+                ],
+                reference: [
+                    { src: 'p1/ref.jpg' ,isRef: true }
+                ],
+                gallery: [
+                    { src: 'p1/r1.jpg' },
+                    { src: 'p1/r2.jpg' },
+                    { src: 'p1/r3.jpg' },
+                    { src: 'p1/r4.jpg' }
+                ]
+            },
+            "cartoon-boxer": {
+                title: "3D Cartoon Boxer Character",
+                category: "Stylized Character Design",
+                description: "Developed a stylized cartoon boxer character with exaggerated features for 3D printing. The project included modeling, texturing, and preparing the model for physical fabrication with attention to structural integrity.",
+                pricing: "$350",
+                duration: "3 weeks",
+                tools: "ZBrush, Blender, Cura",
+                highlights: [
+                    "Created PBR materials for realistic rendering",
+                    "Developed seamless textures for visual appeal",
+                    "Optimized UV mapping for maximum quality",
+                    "Ensured proper wall thickness for printing",
+                    "Added supports for complex overhangs"
+                ],
+                reference: [
+                    { src: 'p2/ref.png' ,isRef: true }
+                ],
+                gallery: [
+                    { src: 'p2/r1.jpg' },
+                    { src: 'p2/r2.jpg' },
+                    { src: 'p2/r3.jpg' },
+                    { src: 'p2/cov.jpg' }
+                ]
+            },
+            "night-wing": {
+                title: "Night Wing Character Sculpture",
+                category: "Superhero Statue",
+                description: "Sculpted a detailed Night Wing character statue with custom base for 3D printing. The project required capturing the essence of the comic book character while ensuring printability at 1/6 scale.",
+                pricing: "$450",
+                duration: "4 weeks",
+                tools: "ZBrush, Substance Painter, Meshmixer",
+                highlights: [
+                    "Modeled both low-poly and high-poly assets",
+                    "Created optimized topology for fabrication",
+                    "Developed modular components for assembly",
+                    "Ensured structural integrity for large print",
+                    "Added intricate costume details and textures"
+                ],
+            reference: [
+                    { src: 'p3/ref.png' ,isRef: true }
+                ],
+                gallery: [
+                    { src: 'p3/cov.jpg' },
+                    { src: 'p3/r1.jpg' },
+                    { src: 'p3/r2.jpg' },
+                    { src: 'p3/r3.jpg' }
+                ]
+            },
+            "fantasy-warrior": {
+                title: "Fantasy Warrior Sculpture",
+                category: "Original Character Design",
+                description: "Designed and modeled an original fantasy warrior character from concept to 3D printable model. The project included weapon design, armor detailing, and pose refinement for dynamic presentation.",
+                pricing: "$500",
+                duration: "5 weeks",
+                tools: "ZBrush, Blender, Substance Painter",
+                highlights: [
+                    "Created unique character with distinct personality",
+                    "Modeled with proper anatomy and proportions",
+                    "Developed intricate armor and weapon details",
+                    "Optimized for multi-material printing",
+                    "Prepared assembly instructions for client"
+                ],
+                reference: [
+                    { src: 'p4/r4.jpg' ,isRef: true }
+                ],
+                gallery: [
+                    { src: 'p4/r1.jpg' },
+                    { src: 'p4/r2.jpg' },
+                    { src: 'p4/r3.jpg' },
+                    { src: 'p4/cov.jpg' }
+                ]
+            },
+            "mecha-robot": {
+                title: "Mecha Robot Design",
+                category: "Hard Surface Modeling",
+                description: "Created a complex mecha robot with intricate mechanical details suitable for 3D printing. The project involved hard surface modeling techniques and assembly planning for multi-part printing.",
+                pricing: "$600",
+                duration: "6 weeks",
+                tools: "Blender, Fusion 360, Cura",
+                highlights: [
+                    "Designed with moving parts and articulation",
+                    "Created detailed mechanical components",
+                    "Ensured proper clearances for assembly",
+                    "Optimized for FDM and resin printing",
+                    "Prepared sliced models for different printers"
+                ],
+                reference: [
+                    { src: 'p5/ref.jpg' ,isRef: true }
+                ],
+                gallery: [
+                    { src: 'p5/cov.jpg' },
+                    { src: 'p5/r1.jpg' },
+                    { src: 'p5/r2.jpg' },
+                    { src: 'p5/r3.jpg' }
+                ]
+            }
+        };
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1377,274 +1645,141 @@
             });
         });
 
-        // Project tabs functionality
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const projectCards = document.querySelectorAll('.project-card');
+        // Project detail functionality
+        const projectDetail = document.getElementById('project-detail');
+        const detailTitle = document.getElementById('detail-title');
+        const detailCategory = document.getElementById('detail-category');
+        const highlightList = document.getElementById('highlight-list');
+        const projectDetails = document.getElementById('project-details');
+        const referenceGrid = document.getElementById('reference-grid');
+        const projectGalleryGrid = document.getElementById('project-gallery-grid');
+        const closeDetail = document.getElementById('close-detail');
+        const overlay = document.getElementById('overlay');
         
-        // Initially hide academic projects
-        document.querySelectorAll('.project-card[data-type="academic"]').forEach(card => {
-            card.style.display = 'none';
-        });
-        
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                tabBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
+        // Open project detail
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const projectId = card.getAttribute('data-id');
+                const project = projectData[projectId];
                 
-                const tabType = btn.getAttribute('data-tab');
-                
-                projectCards.forEach(card => {
-                    if (tabType === 'freelance') {
-                        if (card.getAttribute('data-type') === 'freelance') {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    } else if (tabType === 'academic') {
-                        if (card.getAttribute('data-type') === 'academic') {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    }
-                });
+                if (project) {
+                    openProjectDetail(project);
+                }
             });
         });
 
-        // Project detail functionality
-        const detailProjectCards = document.querySelectorAll('.project-card');
-        const projectDetail = document.getElementById('project-detail');
-        const overlay = document.getElementById('overlay');
-        const closeDetail = document.getElementById('close-detail');
-        const detailTitle = document.getElementById('detail-title');
-        const detailCategory = document.getElementById('detail-category');
-        const detailDescription = document.getElementById('detail-description');
-        
-        // Gallery slider elements
-        const sliderTrack = document.getElementById('slider-track');
-        const sliderDots = document.getElementById('slider-dots');
-        const prevBtn = document.getElementById('prev-slide');
-        const nextBtn = document.getElementById('next-slide');
-        
-        let currentSlide = 0;
-        let slides = [];
-        
-        // Gallery data for each project with local media
-        const projectGalleries = {
-            1: [
-                { type: 'image', src: 'images/logodesign.png' },
-                { type: 'image', src: 'images/logodesign2.png' },
-                { type: 'image', src: 'images/logodesign4.png.svg' },
-                { type: 'image', src: 'images/logo3.jpg' },
-                { type: 'image', src: 'images/logo6.png' }
-            ],
-            2: [
-                { type: 'image', src: 'images/poster 1.jpg' },
-                { type: 'image', src: 'images/poster2.png' },
-                { type: 'image', src: 'images/poster3.png' },
-                { type: 'image', src: 'images/poster4.png' },
-                { type: 'image', src: 'images/poster5.png' },
-                { type: 'image', src: 'images/poster6.png' },
-            ],
-            3: [
-                { type: 'image', src: 'images/3dass2.png' },
-                { type: 'image', src: 'images/3dass3.png' },
-                { type: 'image', src: 'images/3dass4.png' },
-                { type: 'image', src: 'images/3dass5.png' },
-                { type: 'image', src: 'images/3dass6.png' },
-                { type: 'video', src: 'videos/3d_print_demo.mp4', poster: 'images/3d_print_poster.jpg' }
-            ],
-            4: [
-                { type: 'image', src: 'images/Mechanical.png' },
-                { type: 'image', src: 'images/Robotic dog.png' },
-                { type: 'image', src: 'images/Wrench.png' },
-                { type: 'image', src: 'images/creaturegrey.png' },
-                { type: 'image', src: 'images/creature.png' }
-            ],
-            5: [
-                { type: 'image', src: 'images/gameass1.png' },
-                { type: 'image', src: 'images/gameass2.png' },
-                { type: 'image', src: 'images/gameass3.png' },
-                { type: 'image', src: 'images/gameass4.png' },
-                { type: 'video', src: 'videos/game_asset_demo.mp4', poster: 'images/game_asset_poster.jpg' }
-            ],
-            6: [
-                { type: 'image', src: 'images/cpp_project1.jpg' },
-                { type: 'image', src: 'images/cpp_project2.jpg' }
-            ],
-            7: [
-                { type: 'image', src: 'images/python_project1.jpg' },
-                { type: 'image', src: 'images/python_project2.jpg' }
-            ],
-            8: [
-                { type: 'image', src: 'images/matlab_project1.jpg' },
-                { type: 'image', src: 'images/matlab_project2.jpg' }
-            ],
-            9: [
-                { type: 'image', src: 'images/arduino_project1.jpg' },
-                { type: 'video', src: 'videos/arduino_demo.mp4', poster: 'images/arduino_poster.jpg' }
-            ]
-        };
-        
-        // Initialize slider for a project
-        function initSlider(projectId) {
-            sliderTrack.innerHTML = '';
-            sliderDots.innerHTML = '';
-            currentSlide = 0;
-            slides = projectGalleries[projectId] || [];
+        function openProjectDetail(project) {
+            detailTitle.textContent = project.title;
+            detailCategory.textContent = project.category;
             
-            slides.forEach((slide, index) => {
-                // Create slide
-                const slideElement = document.createElement('div');
-                slideElement.className = 'slide';
-                
-                if (slide.type === 'image') {
-                    const img = document.createElement('img');
-                    img.src = slide.src;
-                    img.alt = `Project image ${index + 1}`;
-                    slideElement.appendChild(img);
-                } else if (slide.type === 'video') {
-                    const video = document.createElement('video');
-                    video.src = slide.src;
-                    video.controls = true;
-                    video.autoplay = false;
-                    video.muted = true;
-                    video.style.width = '100%';
-                    video.style.height = '100%';
-                    video.style.objectFit = 'contain';
-                    
-                    if (slide.poster) {
-                        video.poster = slide.poster;
-                    }
-                    
-                    slideElement.appendChild(video);
-                }
-                
-                sliderTrack.appendChild(slideElement);
-                
-                // Create dot
-                const dot = document.createElement('div');
-                dot.className = 'dot';
-                dot.dataset.index = index;
-                if (index === 0) dot.classList.add('active');
-                
-                dot.addEventListener('click', () => {
-                    goToSlide(index);
-                });
-                
-                sliderDots.appendChild(dot);
+            // Clear previous content
+            highlightList.innerHTML = '';
+            projectDetails.innerHTML = '';
+            referenceGrid.innerHTML = '';
+            projectGalleryGrid.innerHTML = '';
+            
+            // Add highlights
+            project.highlights.forEach(highlight => {
+                const li = document.createElement('li');
+                li.textContent = highlight;
+                highlightList.appendChild(li);
             });
             
-            updateSlider();
-        }
-        
-        // Update slider position
-        function updateSlider() {
-            sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            // Add project details
+            projectDetails.innerHTML = `
+                <div class="detail-item">
+                    <div class="detail-label">Project Duration</div>
+                    <div class="detail-value">${project.duration}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Pricing</div>
+                    <div class="detail-value">${project.pricing}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Tools Used</div>
+                    <div class="detail-value">${project.tools}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Project Type</div>
+                    <div class="detail-value">${project.category}</div>
+                </div>
+            `;
             
-            // Update active dot
-            document.querySelectorAll('.dot').forEach((dot, index) => {
-                if (index === currentSlide) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
+            // Add reference images
+            project.reference.forEach(img => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                
+                item.innerHTML = `
+                    <img src="${img.src}" alt="Reference Image">
+                    ${img.isRef ? '<div class="ref-label">REFERENCE</div>' : ''}
+                `;
+                
+                referenceGrid.appendChild(item);
             });
-        }
-        
-        // Go to specific slide
-        function goToSlide(index) {
-            if (index < 0 || index >= slides.length) return;
-            currentSlide = index;
-            updateSlider();
-        }
-        
-        // Next slide
-        nextBtn.addEventListener('click', () => {
-            if (currentSlide < slides.length - 1) {
-                currentSlide++;
-            } else {
-                currentSlide = 0;
-            }
-            updateSlider();
-        });
-        
-        // Previous slide
-        prevBtn.addEventListener('click', () => {
-            if (currentSlide > 0) {
-                currentSlide--;
-            } else {
-                currentSlide = slides.length - 1;
-            }
-            updateSlider();
-        });
-        
-        // Open project detail
-        detailProjectCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const id = card.getAttribute('data-id');
-                const title = card.querySelector('.project-title').textContent;
-                const category = card.querySelector('.project-category').textContent;
-                const description = card.querySelector('.project-description').textContent;
+            
+            // Add project gallery
+            project.gallery.forEach(img => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
                 
-                detailTitle.textContent = title;
-                detailCategory.textContent = category;
-                detailDescription.textContent = description;
+                item.innerHTML = `
+                    <img src="${img.src}" alt="Project Image">
+                `;
                 
-                // Initialize slider with project gallery
-                initSlider(id);
-                
-                projectDetail.classList.add('active');
-                overlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                projectGalleryGrid.appendChild(item);
             });
-        });
+            
+            projectDetail.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modals
+        closeDetail.addEventListener('click', closeModals);
+        overlay.addEventListener('click', closeModals);
         
-        // Close project detail
-        closeDetail.addEventListener('click', closeProjectDetail);
-        overlay.addEventListener('click', closeProjectDetail);
-        
-        function closeProjectDetail() {
+        function closeModals() {
             projectDetail.classList.remove('active');
             overlay.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
-        
+
         // Download CV button
         const downloadBtns = document.querySelectorAll('.btn-primary');
         
         downloadBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                // Create a temporary link to simulate download
-                const link = document.createElement('a');
-                link.href = '#';
-                link.download = 'Muhammad_Saquib_Khan_CV.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                // Show a confirmation message
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-check"></i> Downloading...';
-                
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                }, 2000);
-            });
+            if (btn.id === 'download-cv') {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Create a temporary link to simulate download
+                    const link = document.createElement('a');
+                    link.href = 'Muhammad Saquib Khan CV.pdf';
+                    link.download = "Muhammad Saquib Khan CV.pdf";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    // Show a confirmation message
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Downloading...';
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                    }, 2000);
+                });
+            }
         });
 
         // Initialize the text rotation animation
         const rotatingText = document.querySelector('.rotating-text div');
         rotatingText.innerHTML = `
-            <span>Graphic Designer</span>
-            <span>2D/3D Artist</span>
-            <span>Data Science Student</span>
-            <span>Logo Designer</span>
-            <span>Brand Identity Expert</span>
+            <span>3D Modeler</span>
+            <span>3D Sculpture Expert</span>
+            <span>3D Printing Specialist</span>
+            <span>Character Designer</span>
+            <span>Hard Surface Modeler</span>
         `;
     </script>
 </body>
